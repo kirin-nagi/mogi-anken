@@ -1,1 +1,23 @@
 /*会員登録のcss*/
+.register-form__content{
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+.register-form__heading{
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.form-group{}
+
+.form__group-title{
+    text-align: center;
+    font-weight: bold;
+}
+
+.form__input--text input,
+.form__input--textarea textarea{
+    margin: 0 auto;
+}

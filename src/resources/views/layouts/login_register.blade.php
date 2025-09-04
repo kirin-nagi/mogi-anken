@@ -13,9 +13,11 @@
 <body>
     <header class="header">
         <div class="header__inner">
-            <a class="header__logo" href="/">
-                "/src/storage/app/public/img/logo.svg"
-            </a>
+            <div class="header-utilities">
+                <a class="header__logo" href="/">
+                <img class="logo" src="/storage/app/public/img/logo.svg" alt="logo">
+                </a>
+            </div>
         </div>
     </header>
 

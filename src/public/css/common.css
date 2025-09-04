@@ -1,1 +1,28 @@
 /*layouts.appのcss*/
+.header{
+    background: #000;
+}
+
+.header__inner{
+    margin: 0 auto;
+    padding: 15px 15px;
+    max-width: 1230px;
+}
+
+.header-utilities{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logo{
+    text-decoration: none;
+}
+
+.header-nav__link{
+    color: #fff;
+    text-decoration: none;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}

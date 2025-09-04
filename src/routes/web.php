@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,4 @@ use App\Http\Controllers\UserController;
 
 Route::get('/register', [UserController::class, 'register']);
 Route::get('/login', [UserController::class, 'login']);
-Route::get('/', [UserController::class, 'index']);
+Route::get('/', [ItemController::class, 'index']);

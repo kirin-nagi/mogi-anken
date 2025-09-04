@@ -6,10 +6,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index()
-    {
-        return view('index');
-    }
+    
     public function register()
     {
         return view('auth.register');
@@ -20,3 +17,7 @@ class UserController extends Controller
         return view('auth.login');
     }
 }
+
+
+
+/*会員登録・ログイン*/

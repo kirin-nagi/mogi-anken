@@ -15,11 +15,10 @@
         <div class="header__inner">
             <div class="header-utilities">
                 <a class="header__logo" href="/">
-                    <"/src/storage/app/public/img/logo.svg">
+                    <img class="logo" src="/storage/app/public/img/logo.svg" alt="logo">
                 </a>
                 <nav>
                     <ul class="header-nav">
-                        <!--@if (Auth::check())-->
                         <!-- 検索フォーム書く -->
                         <li class="header-nav__item">
                             <a class="header-nav__link" href="/login">ログアウト</a>
@@ -31,7 +30,6 @@
                                 <button class="header-nav__button">出品</button>
                             </form>
                         </li>
-                        <!--@endif-->
                     </ul>
                 </nav>
             </div>
