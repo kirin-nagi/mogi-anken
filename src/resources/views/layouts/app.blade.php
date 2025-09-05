@@ -14,8 +14,8 @@
     <header class="header">
         <div class="header__inner">
             <div class="header-utilities">
-                <a class="header__logo" href="/">
-                    <img class="logo" src="/storage/app/public/img/logo.svg" alt="logo">
+                <a class="header__img" href="/">
+                    <img src="/src/storage/app/public/img/logo.svg" alt="logo" />
                 </a>
                 <nav>
                     <ul class="header-nav">
