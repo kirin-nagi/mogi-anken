@@ -16,5 +16,9 @@ use App\Http\Controllers\ItemController;
 */
 
 Route::get('/register', [UserController::class, 'register']);
+Route::post('/register', [UserController::class, 'store']);
 Route::get('/login', [UserController::class, 'login']);
 Route::get('/', [ItemController::class, 'index']);
+Route::middleware('auth')->group(function (){
+    Route::get('/', [ItemController::class, 'index']);
+});
