@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,15 @@ use App\Http\Controllers\ItemController;
 
 Route::get('/register', [UserController::class, 'register']);
 Route::post('/register', [UserController::class, 'store']);
-Route::get('/login', [UserController::class, 'login']);
+Route::get('/login', [UserController::class, 'showlogin']);
+Route::post('/login', [UserController::class, 'login']);
 Route::get('/', [ItemController::class, 'index']);
+
 Route::middleware('auth')->group(function (){
     Route::get('/', [ItemController::class, 'index']);
+    Route::get('/mypage/profile', [UserController::class, 'store']);
 });
+
+
+/*プロフィール設定画面・確認用*/
+Route::get('/mypage/profile', [ProfileController::class, 'edit']);
