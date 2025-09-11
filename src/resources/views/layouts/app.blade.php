@@ -17,9 +17,13 @@
                 <a class="header__img" href="/">
                     <img src="/src/storage/app/public/img/logo.svg" alt="logo" />
                 </a>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" name="keyword" class="form-control" placeholder="なにをお探しですか？" value="{{ request()->input('keyword') }}" >
+                    </div>
+                </div>
                 <nav>
                     <ul class="header-nav">
-                        <!-- 検索フォーム書く -->
                         <li class="header-nav__item">
                             <a class="header-nav__link" href="/login">ログアウト</a>
                             <a class="header-nav__link" href="/mypage">マイページ</a>

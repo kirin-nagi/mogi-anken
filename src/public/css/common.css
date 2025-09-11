@@ -26,3 +26,9 @@
     display: flex;
     justify-content: space-between;
 }
+
+.form-control input,
+.form-control--textarea textarea{
+    padding: 15px;
+    width: 300px;
+}
