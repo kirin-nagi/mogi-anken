@@ -18,15 +18,15 @@ use App\Http\Controllers\ProfileController;
 
 Route::get('/register', [UserController::class, 'register']);
 Route::post('/register', [UserController::class, 'store']);
-Route::get('/login', [UserController::class, 'showlogin']);
+Route::get('/login', [UserController::class, 'showlogin'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
-Route::get('/', [ItemController::class, 'index']);
+/*Route::get('/', [ItemController::class, 'showindex']);*/
 
 Route::middleware('auth')->group(function (){
     Route::get('/', [ItemController::class, 'index']);
-    Route::get('/mypage/profile', [UserController::class, 'store']);
+    Route::post('/mypage/profile', [UserController::class, 'profile']);
 });
 
 
 /*プロフィール設定画面・確認用*/
-Route::get('/mypage/profile', [ProfileController::class, 'edit']);
+Route::get('/mypage/profile', [ProfileController::class, 'showprofile']);

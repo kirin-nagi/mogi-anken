@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\ItemRequest;
 use App\Models\User;
@@ -25,7 +26,6 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
         
-        Auth::login($user);
         return redirect('/mypage/profile');
     }
 
@@ -36,7 +36,17 @@ class UserController extends Controller
 
     public function login(LoginRequest $request)
     {
-        return view('/');
+        $user_info = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+        
+        if(Auth::attempt($user_info)) {
+            $request->session()->regenerate();
+            return redirect('index');
+    }
+
+    return redirect()->route('/login');
     }
 
 }
@@ -45,4 +55,4 @@ class UserController extends Controller
 
 /*会員登録・ログイン*/
 
-/* 会員登録画面で入力後のログイン処理が出来ずに止まってる */
+/* ログイン処理が出来ずに止まってる */
