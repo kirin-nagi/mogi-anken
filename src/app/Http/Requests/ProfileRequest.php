@@ -13,7 +13,7 @@ class ProfileRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,9 +24,21 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required', 'min|20'],
+            'post code' => ['required',ハイフンありで設定する],
+            'address' => ['required'],
         ];
     }
 
-    
+    public function messages()
+    {
+        return [
+            'name.required' =>[] ,
+            'name.min|20' => [],
+            'post code.required' =>[],
+            'post code.ハイフン設定' =>[],
+            'address.required' => [],
+
+        ];
+    }
 }
