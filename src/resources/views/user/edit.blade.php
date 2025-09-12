@@ -11,9 +11,10 @@
     <div class="edit-form__heading">
         <h2>プロフィール設定</h2>
     </div>
-    <label for="upload" class="custom-upload">画像を選択する</label>
-<input type="file" id="upload" class="hidden" accept="image/*">
-</div>
+    <div class="circle">
+        <label for="upload" class="custom-upload">画像を選択する</label>
+        <input type="file" id="upload" class="hidden" accept="image/*">
+    </div>
 <form class="form" action="/mypage/profile" method="post">
     @csrf
     <div class="form__group">
@@ -82,5 +83,6 @@
         <button class="form__button-submit" type="submit">更新する</button>
     </div>
 </form>
+</div>
 
 @endsection

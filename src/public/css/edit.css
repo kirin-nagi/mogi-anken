@@ -1,3 +1,10 @@
+.circle{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    border-radius: 50%;
+}
+
 .custom-upload {
     background-color: #f3f3f3;
     padding: 10px 20px;

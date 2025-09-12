@@ -6,3 +6,8 @@
 @endsection
 
 @section('content')
+
+<おすすめとマイリストを入れる>
+<div class="box">商品画像</div>
+<div class="box">商品画像</div>
+<div class="box">商品画像</div>

@@ -32,3 +32,8 @@
     padding: 15px;
     width: 300px;
 }
+
+.header-nav__item{
+    display: flex;
+    justify-content: right;
+}
