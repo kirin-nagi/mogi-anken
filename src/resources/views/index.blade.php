@@ -6,8 +6,21 @@
 @endsection
 
 @section('content')
+<div class="category-table">
+    <table class="category-table__inner">
+        <tr class="category-table__row">
+            <th class="category-table__header">
+                <a class="category-table__header">おすすめ</a>
+                <a class="category-table__header">マイリスト</a>
+            </th>
+        </tr>
+    </table>
+    <div class="box">商品画像</div>
+    <div class="box">商品画像</div>
+    <div class="box">商品画像</div>
+    <div class="box">商品画像</div>
+    <div class="box">商品画像</div>
+</div>
 
-<おすすめとマイリストを入れる>
-<div class="box">商品画像</div>
-<div class="box">商品画像</div>
-<div class="box">商品画像</div>
+
+@endsection

@@ -34,6 +34,7 @@
 }
 
 .header-nav__item{
-    display: flex;
+    display: inline-block;
     justify-content: right;
 }
+

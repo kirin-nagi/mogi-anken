@@ -1,11 +1,35 @@
 /*商品一覧画面のcss*/
-
 .box {
-    display: flex;
-    justify-content: space-between;
+    display: inline-block;
+    margin: left;
     width: 200px;
     height: 200px;
     background-color: lightblue;
     border: 1px solid blue;
     margin: 10px;
+}
+
+.category-table{
+    margin: 30px auto;
+    width: 70%;
+    text-align: center;
+}
+
+.category-table__inner{
+    width: 100%;
+}
+
+.category-table__row{
+    border-bottom: 1px solid black;
+}
+
+.category-table__header{
+    padding: 12px;
+    width: 20%;
+    text-align: left;
+    font-weight: bold;
+}
+
+.category-table__header-span{
+    margin-right: 40%;
 }
