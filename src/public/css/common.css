@@ -19,22 +19,22 @@
     text-decoration: none;
 }
 
-.header-nav__link{
-    color: #fff;
-    text-decoration: none;
-    align-items: center;
+.header-nav {
     display: flex;
-    justify-content: space-between;
 }
 
-.form-control input,
-.form-control--textarea textarea{
-    padding: 15px;
-    width: 300px;
+.header-nav__item {
+    display: flex;
+    align-items: center;
 }
 
-.header-nav__item{
+.header-nav__link{
+    color: #ddd;
+}
+
+.header-nav__link,
+.header-nav__button {
+    text-decoration: none;
     display: inline-block;
-    justify-content: right;
+    margin-right: 20px;
 }
-
