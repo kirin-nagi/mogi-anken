@@ -23,7 +23,7 @@ Route::post('/login', [UserController::class, 'login']);
 Route::get('/', [ItemController::class, 'showindex']);
 
 Route::middleware('auth')->group(function (){
-    /*Route::get('/', [ItemController::class, 'index']);*/
+    Route::get('/', [UserController::class, 'index']);
     Route::post('/mypage/profile', [UserController::class, 'profile']);
 });
 

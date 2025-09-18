@@ -20,12 +20,13 @@ class UserController extends Controller
 
     public function store(RegisterRequest $request)
     {
-        User::create([
+        $user=User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
         
+        Auth::login($user);
         return redirect('/mypage/profile');
     }
 
@@ -43,10 +44,10 @@ class UserController extends Controller
         
         if(Auth::attempt($user_info)) {
             $request->session()->regenerate();
-            return redirect('index');
+            return redirect('/');
     }
 
-    return redirect()->route('/login');
+    return redirect()->route('login');
     }
 
 }
