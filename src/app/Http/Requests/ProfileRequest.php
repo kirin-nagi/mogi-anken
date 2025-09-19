@@ -25,7 +25,7 @@ class ProfileRequest extends FormRequest
     {
         return [
             'name' => ['required', 'min|20'],
-            'post code' => ['required',ハイフンありで設定する],
+            'post code' => ['required'/*ハイフンありで設定する*/],
             'address' => ['required'],
         ];
     }

@@ -23,8 +23,11 @@ Route::post('/login', [UserController::class, 'login']);
 Route::get('/', [ItemController::class, 'showindex']);
 
 Route::middleware('auth')->group(function (){
-    Route::get('/', [UserController::class, 'index']);
-    Route::post('/mypage/profile', [UserController::class, 'profile']);
+    Route::get('/', [ItemController::class, 'index']);
+    Route::post('/mypage/profile', [ProfileController::class, 'profile']);
+
+    /*登録後のprofile画面*/
+    Route::get('/', [ProfileController::class, 'updateprofile']);
 });
 
 

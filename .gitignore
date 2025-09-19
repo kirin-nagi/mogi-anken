@@ -26,3 +26,12 @@ docker/mysql/data/server-cert.pem
 docker/mysql/data/server-key.pem
 docker/mysql/data/undo_001
 docker/mysql/data/undo_002
+docker/mysql/data/binlog.000009
+docker/mysql/data/binlog.000010
+docker/mysql/data/binlog.000011
+docker/mysql/data/binlog.000012
+docker/mysql/data/binlog.000013
+docker/mysql/data/binlog.000014
+docker/mysql/data/binlog.000015
+docker/mysql/data/binlog.000016
+docker/mysql/data/binlog.000017
