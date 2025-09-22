@@ -21,6 +21,8 @@ class ProfileController extends Controller
 
     public function updateprofile()
     {
+        $user = Auth::user();
+        
         $addresses=Addresses::update([
             'id' =>$user['id'],
             'name'=> $request->name,
@@ -28,11 +30,13 @@ class ProfileController extends Controller
             'address' =>$request->address,
             'building'=>$request->building ??null,
         ]);
+
         return redirect('/');
     }
 
 
 }
+
 
 
 /*アイコンも設定する？*/

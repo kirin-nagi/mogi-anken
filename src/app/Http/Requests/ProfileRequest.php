@@ -33,11 +33,11 @@ class ProfileRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' =>[] ,
-            'name.min|20' => [],
-            'post code.required' =>[],
-            'post code.ハイフン設定' =>[],
-            'address.required' => [],
+            'name.required' =>'' ,
+            'name.min|20' => '',
+            'post code.required' =>'',
+            'post code.ハイフン設定' =>'',
+            'address.required' => '',
 
         ];
     }
