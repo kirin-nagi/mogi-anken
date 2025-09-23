@@ -22,14 +22,14 @@ Route::get('/login', [UserController::class, 'showlogin'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/', [ItemController::class, 'showindex']);
 
-Route::middleware('auth')->group(function (){
+/*Route::middleware('auth')->group(function (){
     Route::get('/', [ItemController::class, 'index']);
     Route::post('/mypage/profile', [ProfileController::class, 'profile']);
-
-    /*登録後のprofile画面*/
-    Route::get('/', [ProfileController::class, 'updateprofile']);
-});
+    Route::post('/',[ProfileController::class, 'updateprofile']);
+});*/
 
 
 /*プロフィール設定画面・確認用*/
 Route::get('/mypage/profile', [ProfileController::class, 'showprofile']);
+/*プロフィール画面・確認用*/
+Route::get('/mypage', [ProfileController::class, 'showprofile2']);

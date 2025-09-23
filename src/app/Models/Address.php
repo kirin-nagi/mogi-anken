@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Profile extends Model
+
+class Address extends Model
 {
     use HasFactory;
 
@@ -16,3 +17,4 @@ class Profile extends Model
         'building',
     ];
 }
+
