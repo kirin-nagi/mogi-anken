@@ -33,3 +33,5 @@ Route::get('/', [ItemController::class, 'showindex']);
 Route::get('/mypage/profile', [ProfileController::class, 'showprofile']);
 /*プロフィール画面・確認用*/
 Route::get('/mypage', [ProfileController::class, 'showprofile2']);
+/*商品出品画面・確認用*/
+Route::get('/sell',[ItemController::class, 'showsell']);

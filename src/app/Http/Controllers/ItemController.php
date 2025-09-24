@@ -16,6 +16,11 @@ class ItemController extends Controller
         
         return view('index');
     }
+
+    public function showsell(){
+
+        return view('merchandise.sell');
+    }
 }
 
 
