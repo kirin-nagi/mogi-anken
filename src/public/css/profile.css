@@ -1,4 +1,5 @@
 .profile-form__heading{
+    
 }
 
 .icon {
@@ -6,13 +7,8 @@
     align-items: center;
 }
 
-.circle {
-    align-items: center;
-    width: 100px;
-    height: 100px;
-    background-color: rgb(199, 197, 197);
+.circle__img img {
     border-radius: 50%;
-    margin: 50px;
 }
 
 .form__button{

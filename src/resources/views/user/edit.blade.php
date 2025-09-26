@@ -12,7 +12,9 @@
         <h2>プロフィール設定</h2>
     </div>
     <div class="icon">
-    <div class="circle"></div>
+    <div class="circle__img">
+        <img src='/storage/img/furima-aikon.png' width="125">
+    </div>
         <label for="upload" class="custom-upload">画像を選択する
         <input type="file" id="upload" class="hidden" accept="image/*">
         </label>

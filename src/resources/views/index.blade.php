@@ -15,11 +15,13 @@
             </th>
         </tr>
     </table>
-    <div class="box">商品画像</div>
-    <div class="box">商品画像</div>
-    <div class="box">商品画像</div>
-    <div class="box">商品画像</div>
-    <div class="box">商品画像</div>
+    <div class="img__box">
+        <div class="box">商品画像</div>
+        <div class="box">商品画像</div>
+        <div class="box">商品画像</div>
+        <div class="box">商品画像</div>
+        <div class="box">商品画像</div>
+    </div>
 </div>
 
 

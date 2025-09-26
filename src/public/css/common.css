@@ -1,11 +1,12 @@
 /*layouts.appのcss*/
 .header{
     background: #000;
+    padding: 50px;
 }
 
 .header__inner{
     margin: 0 auto;
-    padding: 15px 15px;
+    padding: 10px 10px;
     max-width: 1230px;
 }
 

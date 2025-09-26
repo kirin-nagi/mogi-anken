@@ -9,8 +9,8 @@
 <dic class="profile-form__content">
     <div class="profile-form__heading">
         <div class="icon">
-            <div class="circle">
-
+            <div class="circle__img">
+                <img src='/storage/img/furima-aikon.png' width="125">
             </div>
             <h2> ユーザー名</h2>
             <div class="form" action="/mypage" method="get">
