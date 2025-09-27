@@ -15,7 +15,7 @@
         <div class="header__inner">
             <div class="header-utilities">
                 <a class="header__img" href="/">
-                    <img src='/storage/img/logo.svg' width="300">
+                    <img src='/storage/img/logo.svg' width="250">
                 </a>
                 <div class="form-group">
                     <div class="input-group">

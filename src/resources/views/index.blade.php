@@ -6,15 +6,15 @@
 @endsection
 
 @section('content')
-<div class="category-table">
-    <table class="category-table__inner">
-        <tr class="category-table__row">
-            <th class="category-table__header">
-                <a class="category-table__header">おすすめ</a>
-                <a class="category-table__header">マイリスト</a>
-            </th>
-        </tr>
-    </table>
+<div class="category-content">
+    <div class="category-group__inner">
+        <div class="category-group__row">
+            <div class="category-group__header">
+                <a class="category-group__header">おすすめ</a>
+                <a class="category-group__header">マイリスト</a>
+            </div>
+        </div>
+    </div>
     <div class="img__box">
         <div class="box">商品画像</div>
         <div class="box">商品画像</div>

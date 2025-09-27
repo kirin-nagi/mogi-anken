@@ -9,27 +9,27 @@
     margin: 10px;
 }
 
-.category-table{
+.category-content{
     margin: 30px auto;
     width: 70%;
     text-align: center;
 }
 
-.category-table__inner{
+.category-group__inner{
     width: 100%;
 }
 
-.category-table__row{
+.category-group__row{
     border-bottom: 1px solid black;
 }
 
-.category-table__header{
+.category-group__header{
     padding: 12px;
     width: 20%;
     text-align: left;
     font-weight: bold;
 }
 
-.category-table__header-span{
+.category-group__header-span{
     margin-right: 40%;
 }

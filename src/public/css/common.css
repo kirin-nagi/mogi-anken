@@ -1,14 +1,15 @@
 /*layouts.appのcss*/
 .header{
     background: #000;
-    padding: 50px;
+    padding: 1px;
 }
 
 .header__inner{
     margin: 0 auto;
-    padding: 10px 10px;
+    padding: 1px 1px;
     max-width: 1230px;
 }
+
 
 .header-utilities{
     display: flex;
@@ -16,8 +17,9 @@
     justify-content: space-between;
 }
 
-.header__logo{
+.header__img{
     text-decoration: none;
+    margin-left: -200px;
 }
 
 .header-nav {
@@ -27,15 +29,20 @@
 .header-nav__item {
     display: flex;
     align-items: center;
+    margin-right: -50px;
 }
 
 .header-nav__link{
     color: #ddd;
 }
 
+.header-nav__button{
+    margin-right: -100px;
+}
+
 .header-nav__link,
 .header-nav__button {
     text-decoration: none;
-    display: inline-block;
-    margin-right: 20px;
+    display: flex;
+    margin-right: 50px;
 }
