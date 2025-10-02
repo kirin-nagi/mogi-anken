@@ -24,25 +24,19 @@
 
 .header-nav {
     display: flex;
+    margin-right: -200px;
 }
 
 .header-nav__item {
     display: flex;
     align-items: center;
-    margin-right: -50px;
 }
 
 .header-nav__link{
     color: #ddd;
 }
 
-.header-nav__button{
-    margin-right: -100px;
-}
-
 .header-nav__link,
 .header-nav__button {
     text-decoration: none;
-    display: flex;
-    margin-right: 50px;
 }

@@ -15,7 +15,7 @@
         <div class="header__inner">
             <div class="header-utilities">
                 <a class="header__img" href="/">
-                <img src="/src/storage/app/public/img/logo.svg" alt="logo">
+                    <img src='/storage/img/logo.svg' width="250">
                 </a>
             </div>
         </div>
