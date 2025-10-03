@@ -1,1 +1,4 @@
 /*商品出品画面*/
+.sell-form__content{
+    max-width: 680px;
+}
