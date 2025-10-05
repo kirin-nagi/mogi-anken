@@ -1,4 +1,26 @@
 /*商品出品画面*/
-.sell-form__content{
+.sell__content{
     max-width: 680px;
+    margin: 0 auto;
 }
+
+.sell-form__heading{
+    margin: 0 auto;
+}
+
+.custom-upload{
+    width: 160px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #f74343;
+    cursor: pointer;
+    margin-left: 200px;
+    color: #f74343;
+    font-weight: bold;
+    background-color: white;
+}
+
+.label{
+    margin-right: 5px;
+}
+
