@@ -14,7 +14,7 @@
         <div class="sell__subtitle">
             <h3>商品画像</h3>
         </div>
-        <div style="border: gray dotted 4px;  padding: 15px;">
+        <div style="border: gray dotted 1px;  padding: 50px;">
             <label for="upload" class="custom-upload">画像を選択する
                 <input type="file" id="upload" class="hidden" accept="image/*">
             </label>
@@ -37,13 +37,15 @@
             <label><input type="checkbox" value="キッチン" name="category"><span>キッチン</span></label>
             <label><input type="checkbox" value="ハンドメイド" name="category"><span>ハンドメイド</span></label>
             <label><input type="checkbox" value="アクセサリー" name="category"><span>アクセサリー</span></label>
-            <labe><input type="checkbox" value="おもちゃ" name="category"><span>おもちゃ</span></labe><label><input type="checkbox" value="ベビー・キッズ" name="category"><span>ベビー・キッズ</span></label>
+            <label><input type="checkbox" value="おもちゃ" name="category"><span>おもちゃ</span></label>
+            <label><input type="checkbox" value="ベビー・キッズ" name="category"><span>ベビー・キッズ</span></label>
             <div class="sell__subtitle">
                 <h3>商品の状態</h3>
             </div>
             <div class="sell-search">
                 <div class="sell-search__item">
                     <select class="sell-search__item-select">
+                        <option hidden>選択してください</option>
                         <option value="良好">良好</option>
                         <option value="目立った傷や汚れなし">目立った傷や汚れなし</option>
                         <option value="やや傷や汚れあり">やや傷や汚れあり</option>
@@ -75,7 +77,7 @@
                             <input type="brand" name="brand" />
                         </div>
                     </div>
-                 </div>
+                </div>
                 <div class="form__group">
                     <div class="form__group-title">
                         <span class="form__label--item">商品の説明</span>

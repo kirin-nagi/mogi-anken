@@ -20,11 +20,8 @@
     background-color: white;
 }
 
-.custom-update__button{
+.custom-upload__button{
     text-decoration: none;
-}
-
-.custom-update-button{
     background: #ddd;
 }
 

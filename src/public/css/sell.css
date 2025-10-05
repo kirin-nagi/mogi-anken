@@ -5,12 +5,19 @@
 }
 
 .sell-form__heading{
-    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.sell__title{
+    color: #6d6969;
+    border-bottom: solid 1px #6d6969;
+    margin-top: 50px;
 }
 
 .custom-upload{
     width: 160px;
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
     border: 1px solid #f74343;
     cursor: pointer;
@@ -18,9 +25,70 @@
     color: #f74343;
     font-weight: bold;
     background-color: white;
+    text-align: center;
 }
 
-.label{
-    margin-right: 5px;
+
+label{
+    margin: 5px 0 0 5px;
+    padding: 15px;
+    line-height: 3;
 }
 
+label input{
+    display: none;
+}
+
+label span{
+    color: #f74343;
+    font-size: 12px;
+    border: 1px solid #f74343;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+label input:checked + span{
+    color: #fff;
+    background: #f74343;
+    border: 1px solid #f74343;
+}
+
+.sell-search__item-select{
+    width: 680px;
+    height: 35px;
+}
+
+.form__group-title{
+    margin-top: 20px;
+}
+
+.form__label--item{
+    font-weight: bold;
+}
+
+.form__input--text input,
+.form__input--textarea textarea{
+    width: 680px;
+    height: 35px;
+}
+
+.form__input--textarea textarea{
+    height: 100px;
+}
+
+.form__button {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.form__button-submit {
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    width: 680px;
+    background: #f74343;
+    color: #fff;
+    font-weight: bold;
+
+}
