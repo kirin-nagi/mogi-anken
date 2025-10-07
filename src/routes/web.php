@@ -21,11 +21,13 @@ Route::post('/register', [UserController::class, 'store']);
 Route::get('/login', [UserController::class, 'showlogin'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/', [ItemController::class, 'showindex']);
+Route::get('/item/{item_id}',[ItemController::class, 'showitem']);
 
 /*Route::middleware('auth')->group(function (){
     Route::get('/', [ItemController::class, 'index']);
     Route::post('/mypage/profile', [ProfileController::class, 'profile']);
     Route::post('/',[ProfileController::class, 'updateprofile']);
+    Route::get('/item/{item_id}',[ItemController::class, 'item']);
 });*/
 
 

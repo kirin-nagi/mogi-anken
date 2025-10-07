@@ -15,12 +15,15 @@
             </div>
         </div>
     </div>
-    <div class="img__box">
-        <div class="box">商品画像</div>
-        <div class="box">商品画像</div>
-        <div class="box">商品画像</div>
-        <div class="box">商品画像</div>
-        <div class="box">商品画像</div>
+    <div class="product-contents">
+        @foreach ($products as $product)
+        <div class="product-content">
+            <a href="/item/{item_id}" class="product-link">
+                <img src="{{ asset($product->image) }}" alt="商品画像" class="img-content" />
+                <p>{{$product->name}}</p>
+            </a>
+        </div>
+        @endforeach
     </div>
 </div>
 

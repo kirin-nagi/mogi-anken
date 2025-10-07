@@ -13,13 +13,29 @@ class ItemController extends Controller
 
     public function index()
     {
-        
+
         return view('index');
     }
 
     public function showsell(){
 
         return view('merchandise.sell');
+    }
+
+    // 商品画像を表示させる //
+    public function store(){
+
+        $product = Product::findOrFail($id);
+
+        return view('index', compact('products'));
+
+    }
+
+    public function showstore()
+    {
+        $product = Product::findOrFail($id);
+
+        return view('index', compact('products'));
     }
 }
 
