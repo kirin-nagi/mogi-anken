@@ -15,11 +15,11 @@
             </div>
         </div>
     </div>
-    <div class="product-contents">
+    <div class="product-content">
         @foreach ($products as $product)
-        <div class="product-content">
+        <div class="product-wrapper">
             <a href="/item/{item_id}" class="product-link">
-                <img src="{{ asset($product->image) }}" alt="商品画像" class="img-content" />
+                <img src="{{ asset($product->image) }}" class="img-content" width="250" />
                 <p>{{$product->name}}</p>
             </a>
         </div>

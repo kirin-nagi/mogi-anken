@@ -7,7 +7,7 @@
 .header__inner{
     margin: 0 auto;
     padding: 1px 1px;
-    max-width: 1230px;
+    max-width: 100vw;
 }
 
 
@@ -19,17 +19,16 @@
 
 .header__img{
     text-decoration: none;
-    margin-left: -200px;
 }
 
 .header-nav {
     display: flex;
-    margin-right: -200px;
+    margin-right: -100px;
 }
 
 .header-nav__item {
     display: flex;
-    align-items: center;
+    margin-right: 100px;
 }
 
 .header-nav__link{

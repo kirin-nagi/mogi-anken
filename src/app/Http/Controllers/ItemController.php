@@ -3,18 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class ItemController extends Controller
 {
-    public function showindex()
-    {
-        return view('index');
-    }
-
     public function index()
     {
-
-        return view('index');
+        $products = Product::all();
+        return view('index', ['products' => $products]);
     }
 
     public function showsell(){
@@ -23,19 +19,12 @@ class ItemController extends Controller
     }
 
     // 商品画像を表示させる //
-    public function store(){
+    public function showdetail($id){
 
         $product = Product::findOrFail($id);
 
-        return view('index', compact('products'));
+        return view('item', compact('products'));
 
-    }
-
-    public function showstore()
-    {
-        $product = Product::findOrFail($id);
-
-        return view('index', compact('products'));
     }
 }
 

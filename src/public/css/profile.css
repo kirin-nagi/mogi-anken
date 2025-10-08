@@ -1,9 +1,14 @@
 .profile-content{
-    max-width: 1230px;
+    max-width: 100vw;
     margin: 0 auto;
 }
 
+.profile-heading{
+    text-align: center;
+}
+
 .icon {
+    margin: 30px 500px;
     display: flex;
     align-items: center;
 }
@@ -40,27 +45,21 @@
 }
 
 .category-table {
-    margin: 30px auto;
-    width: 70%;
+    margin: 30px 0;
     text-align: center;
 }
 
-.category-table__inner {
+.category-table__inner{
     width: 100%;
+    text-align: center;
 }
 
 .category-table__row {
     border-bottom: 1px solid black;
-    
 }
 
 .category-table__header {
-    padding: 12px;
-    width: 20%;
+    padding: 10px;
     text-align: left;
     font-weight: bold;
-}
-
-.category-table__header-span {
-    margin-right: 40%;
 }
