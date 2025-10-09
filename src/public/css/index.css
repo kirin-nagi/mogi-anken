@@ -8,8 +8,8 @@
     display: grid;
     grid-template-rows: repeat(5,auto);
     grid-template-columns: repeat(5,auto);
-    margin: 50px;
-    gap: 50px;
+    margin: 10px;
+    gap: 10px;
 }
 
 .product-link{
@@ -37,4 +37,11 @@
     width: 40%;
     margin-right: 50px;
     font-weight: bold;
+}
+
+.category-group__link{
+    text-decoration: none;
+    gap: 30px;
+    color: black;
+    margin-right: 50px;
 }

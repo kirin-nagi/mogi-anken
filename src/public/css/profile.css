@@ -44,22 +44,30 @@
     margin: 10px;
 }
 
-.category-table {
-    margin: 30px 0;
+.category-content {
+    margin: 50px 0;
     text-align: center;
 }
 
-.category-table__inner{
+.category-group__inner{
     width: 100%;
     text-align: center;
 }
 
-.category-table__row {
+.category-group__row {
     border-bottom: 1px solid black;
 }
 
-.category-table__header {
-    padding: 10px;
-    text-align: left;
+.category-group__header {
+    padding: 12px;
+    width: 40%;
+    margin-right: 50px;
     font-weight: bold;
+}
+
+.category-group__link{
+    text-decoration: none;
+    gap: 30px;
+    color: black;
+    margin-right: 50px;
 }

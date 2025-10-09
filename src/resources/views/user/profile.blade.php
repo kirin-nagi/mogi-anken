@@ -18,12 +18,12 @@
             </div>
         </div>
     </div>
-    <div class="category-table">
-        <table class="category-table__inner">
-            <tr class="category-table__row">
-                <th class="category-table__header">
-                    <a class="category-table__header">出品した商品</a>
-                    <a class="category-table__header">購入した商品</a>
+    <div class="category-content">
+        <table class="category-group__inner">
+            <tr class="category-group__row">
+                <th class="category-group__header">
+                    <a class="category-group__link" href="/mypage?page=sell">出品した商品</a>
+                    <a class="category-group__link" href="/mypage?page=buy">購入した商品</a>
                 </th>
             </tr>
         </table>

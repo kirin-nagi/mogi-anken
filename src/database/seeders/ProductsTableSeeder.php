@@ -20,7 +20,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => '15.000',
                 'brand' => 'Rolax',
                 'description' =>'スタイリッシュなデザインのメンズ腕時計',
-                'image' => 'storage/img/Armani+Mens+clock.jpg',
+                'image' => 'storage/img/Armani+Mens+Clock.jpg',
                 'condition' => '良好',
             ],
             [
@@ -44,7 +44,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => '4000',
                 'brand' => '',
                 'description' =>'クラシックなデザインの革靴',
-                'image' => 'storage/img/Leather+Shoes+Product.jpg',
+                'image' => 'storage/img/Leather+Shoes+Product+Photo.jpg',
                 'condition' => '状態が悪い',
             ],
             [
@@ -92,7 +92,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => '2.500',
                 'brand' => '',
                 'description' =>'便利なメイクアップセット',
-                'image' => 'storage/img/外出メイクアップセット.jpg',
+                'image' => 'storage/img/makeup.jpg',
                 'condition' => '目立った傷や汚れなし',
             ],
         ]);
