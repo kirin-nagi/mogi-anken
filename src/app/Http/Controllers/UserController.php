@@ -50,6 +50,12 @@ class UserController extends Controller
     return redirect()->route('login');
     }
 
+    /*送付先住所変更画面確認用*/
+    public function showaddress(){
+
+        return view('user.address');
+    }
+
 }
 
 

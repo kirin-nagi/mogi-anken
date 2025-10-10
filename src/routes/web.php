@@ -37,3 +37,5 @@ Route::get('/mypage/profile', [ProfileController::class, 'showprofile']);
 Route::get('/mypage', [ProfileController::class, 'showprofile2']);
 /*商品出品画面・確認用*/
 Route::get('/sell',[ItemController::class, 'showsell']);
+/*送付先住所変更画面確認用*/
+Route::get('/purchase/address/{item_id}', [UserController::class, 'showaddress']);
