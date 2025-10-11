@@ -20,15 +20,14 @@ Route::get('/register', [UserController::class, 'register']);
 Route::post('/register', [UserController::class, 'store']);
 Route::get('/login', [UserController::class, 'showlogin'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
-Route::get('/', [ItemController::class, 'index']);
 Route::get('/item/{item_id}',[ItemController::class, 'index']);
 
-/*Route::middleware('auth')->group(function (){
-    Route::get('/', [ItemController::class, 'index']);
+Route::middleware('auth')->group(function (){
+    Route::get('/', [ItemController::class, 'index'])->name('index');
     Route::post('/mypage/profile', [ProfileController::class, 'profile']);
     Route::post('/',[ProfileController::class, 'updateprofile']);
     Route::get('/item/{item_id}',[ItemController::class, 'item']);
-});*/
+});
 
 
 /*プロフィール設定画面・確認用*/

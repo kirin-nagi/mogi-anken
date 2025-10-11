@@ -48,3 +48,6 @@ docker/mysql/data/binlog.000027
 docker/mysql/data/binlog.000028
 docker/mysql/data/binlog.000029
 docker/mysql/data/binlog.000030
+docker/mysql/data/binlog.000031
+docker/mysql/data/binlog.000032
+docker/mysql/data/binlog.000033

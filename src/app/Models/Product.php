@@ -17,4 +17,9 @@ class Product extends Model
         'image',
         'condition',
     ];
+
+    public function likedByUsers()
+{
+    return $this->belongsToMany(User::class, 'likes', 'product_id', 'user_id');
+}
 }
