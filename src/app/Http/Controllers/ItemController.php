@@ -19,7 +19,12 @@ class ItemController extends Controller
         }else{
             $mylist = collect();
         }
-        return view('index', ['products', 'mylist']);
+        return view('index', compact('products', 'mylist'));
+    }
+    // 出品ボタンから出品画面に行く設定 //
+    public function create(){
+
+        return view('merchandise.sell');
     }
 
     // 商品詳細画面を表示させる //
@@ -29,13 +34,6 @@ class ItemController extends Controller
 
         return view('item', compact('product'));
 
-    }
-
-    // 出品画面確認用 //
-
-public function showsell(){
-
-        return view('merchandise.sell');
     }
 }
 

@@ -25,11 +25,19 @@
                 <nav>
                     <ul class="header-nav">
                         <li class="header-nav__item">
-                            <a class="header-nav__link" href="/login">ログアウト</a>
+                            @auth
+                            <form action="/logout" class="header-nav__link" method="post">
+                            @csrf
+                                <button class="header-nav__link--logout" type="submit">ログアウト</button>
+                            </form>
                             <a class="header-nav__link" href="/mypage">マイページ</a>
+                            @else
+                            <a class="header-nav__link" href="/login">ログイン</a>
+                            <a class="header-nav__link" href="/login">マイページ</a>
+                            @endauth
                         </li>
                         <li class="header-nav__item">
-                            <button class="header-nav__button">出品</button>
+                            <a href="{{ route('items.create') }}" class="header-nav__button">出品</a>
                         </li>
                     </ul>
                 </nav>

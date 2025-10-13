@@ -20,13 +20,16 @@ Route::get('/register', [UserController::class, 'register']);
 Route::post('/register', [UserController::class, 'store']);
 Route::get('/login', [UserController::class, 'showlogin'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
-Route::get('/item/{item_id}',[ItemController::class, 'index']);
+/*Route::get('/item/{item_id}',[ItemController::class, 'index']);*/
+Route::get('/', [ItemController::class, 'index'])->name('index');
+Route::get('/item/{item_id}',[ItemController::class, 'item']);/*商品詳細画面*/
+Route::get('/sell', [ItemController::class, 'create'])->name('items.create');/*middlewareの中に後で入れる*/
+
 
 Route::middleware('auth')->group(function (){
-    Route::get('/', [ItemController::class, 'index'])->name('index');
     Route::post('/mypage/profile', [ProfileController::class, 'profile']);
     Route::post('/',[ProfileController::class, 'updateprofile']);
-    Route::get('/item/{item_id}',[ItemController::class, 'item']);
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy']);
 });
 
 
@@ -34,7 +37,7 @@ Route::middleware('auth')->group(function (){
 Route::get('/mypage/profile', [ProfileController::class, 'showprofile']);
 /*プロフィール画面・確認用*/
 Route::get('/mypage', [ProfileController::class, 'showprofile2']);
-/*商品出品画面・確認用*/
-Route::get('/sell',[ItemController::class, 'showsell']);
+/*商品出品画面・確認用
+Route::get('/sell',[ItemController::class, 'showsell']);*/
 /*送付先住所変更画面確認用*/
 Route::get('/purchase/address/{item_id}', [UserController::class, 'showaddress']);
