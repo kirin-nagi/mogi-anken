@@ -18,7 +18,6 @@ use App\Http\Controllers\ProfileController;
 
 Route::get('/register', [UserController::class, 'register']);
 Route::post('/register', [UserController::class, 'store']);
-Route::get('/login', [UserController::class, 'showlogin'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
 /*Route::get('/item/{item_id}',[ItemController::class, 'index']);*/
 Route::get('/', [ItemController::class, 'index'])->name('index');

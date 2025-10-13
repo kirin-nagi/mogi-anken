@@ -17,7 +17,7 @@ class UserController extends Controller
     {
         return view('auth.register');
     }
-
+    /* 会員登録画面 */
     public function store(RegisterRequest $request)
     {
         $user=User::create([
@@ -25,23 +25,30 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        
+
+
         Auth::login($user);
         return redirect('/mypage/profile');
     }
-
-    public function showlogin()
+    /*プロフィール設定画面*/
+    public function create(ProfileRequest $request)
     {
-        return view('auth.login');
-    }
+        Address::where('id', $request->id)->update([
+            'name'=>$request->name,
+            'postcode'=>$request->postcode,
+            'address'=>$request->address,
+        ]);
 
+        return redirect()->route('index');
+    }
+    /*ログイン画面 */
     public function login(LoginRequest $request)
     {
         $user_info = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
-        
+
         if(Auth::attempt($user_info)) {
             $request->session()->regenerate();
             return redirect('/');
@@ -49,7 +56,7 @@ class UserController extends Controller
 
     return redirect()->route('login');
     }
-
+    /*ログアウト処理*/
     public function logout()
     {
         return view('auth.login');
