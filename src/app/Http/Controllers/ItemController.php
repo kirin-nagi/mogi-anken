@@ -28,12 +28,17 @@ class ItemController extends Controller
     }
 
     // 商品詳細画面を表示させる //
-    public function showdetail($id){
+    public function detail($id){
 
         $product = Product::findOrFail($id);
 
-        return view('item', compact('product'));
+        return view('merchandise.item', compact('product'));
 
+    }
+    // 詳細画面確認用 //
+    public function item()
+    {
+        return view('merchandise.item');
     }
 }
 

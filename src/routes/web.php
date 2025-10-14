@@ -23,6 +23,7 @@ Route::post('/login', [UserController::class, 'login']);
 Route::get('/', [ItemController::class, 'index'])->name('index');
 Route::get('/item/{item_id}',[ItemController::class, 'item']);/*商品詳細画面*/
 Route::get('/sell', [ItemController::class, 'create'])->name('items.create');/*middlewareの中に後で入れる*/
+/*Route::get('/item/{item_id}', [ItemController::class, 'detail']);*/
 
 
 Route::middleware('auth')->group(function (){
