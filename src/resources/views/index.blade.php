@@ -16,14 +16,14 @@
         </div>
     </div>
     <div class="product-content">
-        @foreach ($products as $product)
         <div class="product-wrapper">
-            <a href="/item/{item_id}" class="product-link">
+            @foreach ($products as $product)
+            <a href="/item/{{ $product->id }}" class="product-link">
                 <img src="{{ asset($product->image) }}" class="img-content" width="250" />
                 <p>{{$product->name}}</p>
             </a>
+            @endforeach
         </div>
-        @endforeach
     </div>
 </div>
 

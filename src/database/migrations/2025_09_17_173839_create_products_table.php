@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name')->comment('商品名');
             $table->string('price')->comment('価格');
             $table->string('brand')->comment('ブランド名')->nullable();
-            $table->text('description')->comment('商品説明');
+            $table->text('description', 255)->comment('商品説明');
             $table->string('image')->nullable();
             $table->string('condition');
             $table->timestamps();
