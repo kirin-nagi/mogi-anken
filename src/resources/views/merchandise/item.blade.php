@@ -16,8 +16,14 @@
             <h1>{{ $product->name }}</h1>
             <h4>{{ $product->brand }}</h4>
             <h2>{{ $product->price }}</h2>
-            <!--いいねとコメント機能-->
+            <a href="javascript:void(0);" class="like-link" date-post-id="{{ $product->id }}">
+                <span class="star{{$like ? 'text-red-400' : 'text-white-400' }}">
+                    ☆
+                </span>
+                <span class="like-count">{{ $product->likes()->count()?: '' }}</span>
+            </a>
             <form class="form" action="/purchase/{item_id}" method="post">
+                @csrf
                 <button class="form__button-submit" type="submit">購入手続きへ</button>
             </form>
         </div>
@@ -29,7 +35,7 @@
             </div>
         <div class="detail__subtitle">
             <h2>商品の情報</h2>
-            
+             
             <h4>カテゴリー</h4>
             <!-- カテゴリーで選んだものが入る -->
             <h4>商品の状態</h4>

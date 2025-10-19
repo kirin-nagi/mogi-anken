@@ -18,8 +18,13 @@ class Product extends Model
         'condition',
     ];
 
-    public function likedByUsers()
-{
-    return $this->belongsToMany(User::class, 'likes', 'product_id', 'user_id');
-}
+//    public function likedByUsers()
+//{
+//    return $this->belongsToMany(User::class, 'likes', 'product_id', 'user_id');
+//}
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
 }
