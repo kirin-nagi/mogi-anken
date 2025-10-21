@@ -16,12 +16,13 @@
             <h1>{{ $product->name }}</h1>
             <h4>{{ $product->brand }}</h4>
             <h2>{{ $product->price }}</h2>
-            <a href="javascript:void(0);" class="like-link" date-post-id="{{ $product->id }}">
-                <span class="star{{$like ? 'text-red-400' : 'text-white-400' }}">
+            <a href="javascript:void(0);" class="like-link" data-post-id="{{ $product->id }}">
+                <span class="star {{ isset($like) && $like ? 'text-red-400' : 'text-white-400' }}">
                     ☆
                 </span>
-                <span class="like-count">{{ $product->likes()->count()?: '' }}</span>
+                <span class="like-count">{{ $product->likes->count() ?: '' }}</span>
             </a>
+            <!
             <form class="form" action="/purchase/{item_id}" method="post">
                 @csrf
                 <button class="form__button-submit" type="submit">購入手続きへ</button>
@@ -43,6 +44,16 @@
         </div>
         <div class="comment__group">
             <!-- 入力したコメント情報 -->
+            @forelse($product->comments as $comment)
+            <div class="comment__group-show">
+                <time class="text-secondary">
+                    {{ $comment->user->name }}
+                    {{ optional ($comment)->id }}
+                </time>
+            @empty
+                <p>コメントはまだありません</p>
+            @endforelse
+            </div>
             <div class="comment__group-title">
                 <span class="comment__group--item">商品へのコメント</span>
             </div>

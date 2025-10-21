@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
-use App\Models\POst;
+use App\Models\Like;
+use App\Models\User;
+use App\Models\Comment;
 
 class ItemController extends Controller
 {
@@ -59,6 +61,18 @@ class ItemController extends Controller
         $user = Auth::user();
         $like = Like::where('product_id', $product->id)->where('user_id', $user->id)->first();
         return view('merchandise.item',compact('product','like','user'));
+    }
+
+    //コメント投稿処理//
+    public function store()
+    {
+        $comment = new Comment();
+        $comment->comment = $request->comment;
+        $comment->article_id = $request->article_id;
+        $comment->user_id = Auth::user()->id;
+        $comment->save();
+
+        return redirect('/');
     }
 }
 

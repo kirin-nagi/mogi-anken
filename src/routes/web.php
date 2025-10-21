@@ -25,6 +25,7 @@ Route::get('/sell', [ItemController::class, 'create'])->name('items.create');/*m
 /*Route::get('/item/{item_id}', [ItemController::class, 'detail']);*/
 Route::post('/item/{item_id}',[ItemController::class, 'detail'])->name('like');
 Route::delete('/item/{item_id}',[ItemController::class, 'detail'])->name('unlike');
+Route::post('/item/{item_id}',[ItemController::class, 'store'])->name('comment');
 
 
 Route::middleware('auth')->group(function (){
