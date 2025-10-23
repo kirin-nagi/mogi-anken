@@ -37,7 +37,10 @@
                             @endauth
                         </li>
                         <li class="header-nav__item">
-                            <a href="{{ route('items.create') }}" class="header-nav__button">出品</a>
+                            <form action="/sell" class="header-nav__button" method="get">
+                            @csrf
+                                <button class="header-nav__link--button" type="submit">出品</button>
+                            </form>
                         </li>
                     </ul>
                 </nav>
