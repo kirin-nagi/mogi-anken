@@ -26,27 +26,27 @@
                 <h3>カテゴリー</h3>
             </div>
             <form action="/sell" method="post">
-                <label><input type="checkbox" value="ファッション" name="category"><span>ファッション</span></label>
-                <label><input type="checkbox" value="家電" name="category"><span>家電</span></label>
-                <label><input type="checkbox" value="インテリア" name="category"><span>インテリア</span></label>
-                <label><input type="checkbox" value="レディース" name="category"><span>レディース</span></label>
-                <label><input type="checkbox" value="メンズ" name="category"><span>メンズ</span></label>
-                <label><input type="checkbox" value="コスメ" name="category"><span>コスメ</span></label>
-                <label><input type="checkbox" value="本" name="category"><span>本</span></label>
-                <label><input type="checkbox" value="ゲーム" name="category"><span>ゲーム</span></label>
-                <label><input type="checkbox" value="スポーツ" name="category"><span>スポーツ</span></label>
-                <label><input type="checkbox" value="キッチン" name="category"><span>キッチン</span></label>
-                <label><input type="checkbox" value="ハンドメイド" name="category"><span>ハンドメイド</span></label>
-                <label><input type="checkbox" value="アクセサリー" name="category"><span>アクセサリー</span></label>
-                <label><input type="checkbox" value="おもちゃ" name="category"><span>おもちゃ</span></label>
-                <label><input type="checkbox" value="ベビー・キッズ" name="category"><span>ベビー・キッズ</span></label>
+                <label><input type="checkbox" value="ファッション" name="category_name"><span>ファッション</span></label>
+                <label><input type="checkbox" value="家電" name="category_name"><span>家電</span></label>
+                <label><input type="checkbox" value="インテリア" name="category_name"><span>インテリア</span></label>
+                <label><input type="checkbox" value="レディース" name="category_name"><span>レディース</span></label>
+                <label><input type="checkbox" value="メンズ" name="category_name"><span>メンズ</span></label>
+                <label><input type="checkbox" value="コスメ" name="category_name"><span>コスメ</span></label>
+                <label><input type="checkbox" value="本" name="category_name"><span>本</span></label>
+                <label><input type="checkbox" value="ゲーム" name="category_name"><span>ゲーム</span></label>
+                <label><input type="checkbox" value="スポーツ" name="category_name"><span>スポーツ</span></label>
+                <label><input type="checkbox" value="キッチン" name="category_name"><span>キッチン</span></label>
+                <label><input type="checkbox" value="ハンドメイド" name="category_name"><span>ハンドメイド</span></label>
+                <label><input type="checkbox" value="アクセサリー" name="category_name"><span>アクセサリー</span></label>
+                <label><input type="checkbox" value="おもちゃ" name="category_name"><span>おもちゃ</span></label>
+                <label><input type="checkbox" value="ベビー・キッズ" name="category_name"><span>ベビー・キッズ</span></label>
             </form>
             <div class="sell__subtitle">
                 <h3>商品の状態</h3>
             </div>
             <div class="sell-search">
                 <div class="sell-search__item">
-                    <select class="sell-search__item-select">
+                    <select class="sell-search__item-select" name="condition">
                         <option hidden>選択してください</option>
                         <option value="良好">良好</option>
                         <option value="目立った傷や汚れなし">目立った傷や汚れなし</option>
@@ -86,7 +86,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input--textarea">
-                            <textarea name="content"></textarea>
+                            <textarea name="description"></textarea>
                         </div>
                     </div>
                 </div>

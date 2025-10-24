@@ -45,7 +45,7 @@ class ProductController extends Controller
     }
 
     //コメント投稿処理//
-    public function store(Request $request, $item_id)
+    public function comment(Request $request, $item_id)
     {
         $comment = new Comment();
         $comment->comment = $request->comment;

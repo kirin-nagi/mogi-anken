@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
-use App\Models\Like;
 use App\Models\User;
-use App\Models\Comment;
+use App\Models\Sell;
+
 
 class ItemController extends Controller
 {
@@ -24,16 +24,31 @@ class ItemController extends Controller
         }
         return view('index', compact('products', 'mylist'));
     }
-    // 出品ボタンから出品画面に行く設定 //
-    public function create(){
 
-        return view('merchandise.sell');
-    }
-
-    // 出品ボタンから出品画面に行く設定 //
+    // 出品画面表示 //
     public function showsell()
     {
         return view('merchandise.sell');
+    }
+
+    // 出品する為の設定 //
+    public function create(ExhibitionRequest $request){
+
+        $category = Category::create([
+            'category_name' => $request->category_name,
+        ]);
+
+        $Product = Product::create([
+            'image' => $request->file,
+            'condition' => $request->condition,
+            'name' => $request->name,
+            'brand' => $request->brand,
+            'description' => $request->description,
+            'price' => $request->price,
+        ]);
+        //auth機能を加える//
+
+        return view('/mypage?page=sell');
     }
 }
 
