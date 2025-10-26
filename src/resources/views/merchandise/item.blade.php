@@ -20,12 +20,13 @@
                 <span class="star {{ isset($like) && $like ? 'text-red-400' : 'text-white-400' }}">
                     ☆
                 </span>
-                <span class="like-count">{{ $product->likes->count() ?: '' }}</span>
+                <span class="like-count">{{ $product->likes->count() ?: '' }}
+                </span>
             </a>
-            <!
             <form class="form" action="/purchase/{item_id}" method="post">
                 @csrf
-                <button class="form__button-submit" type="submit">購入手続きへ</button>
+                <button class="form__button-submit" type="submit">購入手続きへ
+                </button>
             </form>
             <div class="detail__subtitle">
                 <h2>商品説明</h2>
@@ -34,14 +35,12 @@
             </div>
             <div class="detail__subtitle">
                 <h2>商品の情報</h2>
-            
                 <h4>カテゴリー</h4>
-                <!--カテゴリーで選んだものが入る-->
+                {{ $categories->category_name}}
                 <h4>商品の状態</h4>
-                <!--商品の状態で選んだものが入る-->
+                <h4>{{ $product->condition }}</h4>
             </div>
             <div class="comment__group">
-                <!--入力したコメント情報-->
                 @forelse($product->comments as $comment)
                 <div class="comment__group-show">
                     <p>{{ $comment->user->name }}: {{ $comment->comment }}</p>
@@ -53,19 +52,22 @@
                     @csrf
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <div class="comment__group-title">
-                        <!--コメントと数字は入る-->
-                        <span class="comment__group--item">商品へのコメント</span>
+                        <span class="comment__group--item">
+                            商品へのコメント
+                        </span>
                     </div>
-            <div class="comment__group-content">
-                <div class="comment__input--textarea">
-                    <textarea name="comment"></textarea>
+                    <div class="comment__group-content">
+                        <div class="comment__input--textarea">
+                            <textarea name="comment"></textarea>
+                        </div>
+                    </div>
+                </form>
+                <div class="comment__button">
+                    <form method="post" action="{{ route('sell.store') }}">
+                        <button class="comment__button-submit" type="submit">コメントを送信する</button>
+                    </form>
                 </div>
             </div>
-            <div class="comment__button">
-                <button class="comment__button-submit" type="submit">コメントを送信する</button>
-            </div>
-            </form>
-        </div>
         </div>
     </form>
 </div>

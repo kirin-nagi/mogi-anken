@@ -1,4 +1,4 @@
-<!-- 商品出品画面-->
+f<!-- 商品出品画面-->
 @extends('layouts.app')
 
 @section('css')
@@ -15,9 +15,13 @@
             <h3>商品画像</h3>
         </div>
         <div style="border: gray dotted 1px;  padding: 50px;">
-            <label for="upload" class="custom-upload">画像を選択する
-                <input type="file" id="upload" class="hidden" accept="image/*">
-            </label>
+            <form method="post" action="{{route('image_post')}}" enctype="multipart/form-data">
+                @csrf
+                <input type="file" id="image" name="image" class="image-upload">
+                <label for="image" class="image-label">
+                    画像を選択する
+                </label>
+            </form>
         </div>
             <div class="sell__title">
                 <h2>商品の詳細</h2>
@@ -26,20 +30,21 @@
                 <h3>カテゴリー</h3>
             </div>
             <form action="/sell" method="post">
-                <label><input type="checkbox" value="ファッション" name="category_name"><span>ファッション</span></label>
-                <label><input type="checkbox" value="家電" name="category_name"><span>家電</span></label>
-                <label><input type="checkbox" value="インテリア" name="category_name"><span>インテリア</span></label>
-                <label><input type="checkbox" value="レディース" name="category_name"><span>レディース</span></label>
-                <label><input type="checkbox" value="メンズ" name="category_name"><span>メンズ</span></label>
-                <label><input type="checkbox" value="コスメ" name="category_name"><span>コスメ</span></label>
-                <label><input type="checkbox" value="本" name="category_name"><span>本</span></label>
-                <label><input type="checkbox" value="ゲーム" name="category_name"><span>ゲーム</span></label>
-                <label><input type="checkbox" value="スポーツ" name="category_name"><span>スポーツ</span></label>
-                <label><input type="checkbox" value="キッチン" name="category_name"><span>キッチン</span></label>
-                <label><input type="checkbox" value="ハンドメイド" name="category_name"><span>ハンドメイド</span></label>
-                <label><input type="checkbox" value="アクセサリー" name="category_name"><span>アクセサリー</span></label>
-                <label><input type="checkbox" value="おもちゃ" name="category_name"><span>おもちゃ</span></label>
-                <label><input type="checkbox" value="ベビー・キッズ" name="category_name"><span>ベビー・キッズ</span></label>
+                @csrf
+                <label><input type="checkbox" value="ファッション" name="category_name[]"><span>ファッション</span></label>
+                <label><input type="checkbox" value="家電" name="category_name[]"><span>家電</span></label>
+                <label><input type="checkbox" value="インテリア" name="category_name[]"><span>インテリア</span></label>
+                <label><input type="checkbox" value="レディース" name="category_name[]"><span>レディース</span></label>
+                <label><input type="checkbox" value="メンズ" name="category_name[]"><span>メンズ</span></label>
+                <label><input type="checkbox" value="コスメ" name="category_name[]"><span>コスメ</span></label>
+                <label><input type="checkbox" value="本" name="category_name[]"><span>本</span></label>
+                <label><input type="checkbox" value="ゲーム" name="category_name[]"><span>ゲーム</span></label>
+                <label><input type="checkbox" value="スポーツ" name="category_name[]"><span>スポーツ</span></label>
+                <label><input type="checkbox" value="キッチン" name="category_name[]"><span>キッチン</span></label>
+                <label><input type="checkbox" value="ハンドメイド" name="category_name[]"><span>ハンドメイド</span></label>
+                <label><input type="checkbox" value="アクセサリー" name="category_name[]"><span>アクセサリー</span></label>
+                <label><input type="checkbox" value="おもちゃ" name="category_name[]"><span>おもちゃ</span></label>
+                <label><input type="checkbox" value="ベビー・キッズ" name="category_name[]"><span>ベビー・キッズ</span></label>
             </form>
             <div class="sell__subtitle">
                 <h3>商品の状態</h3>
@@ -101,10 +106,31 @@
                     </div>
                 </div>
                 <div class="form__button">
+                    <form action="/sell" class="form__button--sell" method="post">
+                        @csrf
                     <button class="form__button-submit" type="submit">出品する</button>
+                    </form>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<script>
+document.getElementById('image').addEventListener('change', function(event){
+    const preview = document.getElementById('preview');
+    const file = event.target.files[0];
+
+    if(file){
+        const reader = new FileReader();
+        reader.onload = function(e){
+            preview.src = e.target.result;
+            preview.style.display = 'block'; // 表示
+        }
+        reader.readAsDataURL(file);
+    } else {
+        preview.src = '#';
+        preview.style.display = 'none';
+    }
+});
+</script>
 @endsection

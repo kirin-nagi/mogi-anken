@@ -9,5 +9,7 @@ class Sell extends Model
 {
     use HasFactory;
 
+    protected $table = 'categories';
+    
     protected $fillable = ['category_name'];
 }

@@ -37,10 +37,9 @@
                             @endauth
                         </li>
                         <li class="header-nav__item">
-                            <form action="/sell" class="header-nav__button" method="get">
-                            @csrf
-                                <button class="header-nav__link--button" type="submit">出品</button>
-                            </form>
+                            <button class="header-nav__link--button" type="button" onclick="window.location.href='/sell'">
+                                出品
+                            </button>
                         </li>
                     </ul>
                 </nav>

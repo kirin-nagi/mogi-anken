@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ExhibitionRequest;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Sell;
@@ -32,14 +33,14 @@ class ItemController extends Controller
     }
 
     // 出品する為の設定 //
-    public function create(ExhibitionRequest $request){
+    public function store(ExhibitionRequest $request){
 
-        $category = Category::create([
+        $sell = Sell::create([
             'category_name' => $request->category_name,
         ]);
 
         $Product = Product::create([
-            'image' => $request->file,
+            'image' => $request->image,
             'condition' => $request->condition,
             'name' => $request->name,
             'brand' => $request->brand,

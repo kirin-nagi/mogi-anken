@@ -28,6 +28,28 @@
     text-align: center;
 }
 
+.image-upload{
+    display: none;
+}
+
+.image-label {
+    width: 160px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #f74343;
+    cursor: pointer;
+    margin-left: 200px;
+    color: #f74343;
+    font-weight: bold;
+    background-color: white;
+    text-align: center;
+}
+
+.image-label:hover {
+    background-color: #f74343;
+    color: white;
+}
+
 
 label{
     margin: 5px 0 0 5px;

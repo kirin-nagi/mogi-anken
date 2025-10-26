@@ -29,6 +29,10 @@ Route::delete('/item/{item_id}',[ProductController::class, 'detail'])->name('unl
 Route::post('/item/{item_id}/comment',[ProductController::class, 'store'])->name('comment');
 Route::get('/?tab=mylist',[ItemController::class, 'mylist']);
 Route::post('/mypage?page=sell',[ItemController::class, 'create']);/*middlewareの中に後で入れる*/
+/*DBに打ち込むためのroute*/
+Route::post('/sell', [ItemController::class, 'store'])->name('sell.store');
+/*画像のroute*/
+Route::post('/image_post', [ImageController::class, 'store'])->name('image_post');
 
 Route::middleware('auth')->group(function (){
     Route::post('/mypage/profile', [ProfileController::class, 'profile']);
@@ -42,6 +46,6 @@ Route::get('/mypage/profile', [ProfileController::class, 'showprofile']);
 /*プロフィール画面・確認用*/
 Route::get('/mypage', [ProfileController::class, 'showprofile2']);
 /*商品出品画面・確認用*/
-Route::post('/sell',[ItemController::class, 'showsell']);
+Route::get('/sell',[ItemController::class, 'showsell']);
 /*送付先住所変更画面確認用*/
 Route::get('/purchase/address/{item_id}', [UserController::class, 'showaddress']);
