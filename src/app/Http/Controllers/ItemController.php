@@ -24,6 +24,11 @@ class ItemController extends Controller
             $mylist = collect();
         }
         return view('index', compact('products', 'mylist'));
+
+        /*indexのおすすめに表示*/
+        $products = Product::all();
+
+        return view('index', compact('products'));
     }
 
     // 出品画面表示 //
@@ -33,14 +38,24 @@ class ItemController extends Controller
     }
 
     // 出品する為の設定 //
-    public function store(ExhibitionRequest $request){
+    public function create(ExhibitionRequest $request){
 
-        $sell = Sell::create([
-            'category_name' => $request->category_name,
+        $path = null;
+        if($request->hasFile('image')){
+            $path = $request->file('image')->store('image', 'public');
+        }
+        
+        if(!empty($request->category_name)){
+
+            foreach($request->category_name as $categoryName){
+            Sell::create([
+            'category_name' => $categoryName,
         ]);
+        }
+    }
 
-        $Product = Product::create([
-            'image' => $request->image,
+        Product::create([
+            'image' => $path,
             'condition' => $request->condition,
             'name' => $request->name,
             'brand' => $request->brand,
@@ -49,8 +64,14 @@ class ItemController extends Controller
         ]);
         //auth機能を加える//
 
-        return view('/mypage?page=sell');
+        return redirect()->route('mypage.sell');
     }
+
+    public function sell() {
+    $products = Product::all();
+    
+    return view('page.sell', compact('products'));
+}
 }
 
 

@@ -27,12 +27,10 @@ Route::get('/item/{item_id}',[ProductController::class, 'showdetail'])->name('it
 Route::post('/item/{item_id}',[ProductController::class, 'detail'])->name('like');
 Route::delete('/item/{item_id}',[ProductController::class, 'detail'])->name('unlike');
 Route::post('/item/{item_id}/comment',[ProductController::class, 'store'])->name('comment');
-Route::get('/?tab=mylist',[ItemController::class, 'mylist']);
-Route::post('/mypage?page=sell',[ItemController::class, 'create']);/*middlewareの中に後で入れる*/
+Route::get('/?tab=mylist',[ItemController::class, 'mylist']);/*<-ここのクリエも変更*/
+Route::get('/mypage',[ItemController::class, 'sell'])->name('mypage.sell');
+Route::post('/mypage',[ItemController::class, 'create'])->name('mypage.create');/*middlewareの中に後で入れる*/
 /*DBに打ち込むためのroute*/
-Route::post('/sell', [ItemController::class, 'store'])->name('sell.store');
-/*画像のroute*/
-Route::post('/image_post', [ImageController::class, 'store'])->name('image_post');
 
 Route::middleware('auth')->group(function (){
     Route::post('/mypage/profile', [ProfileController::class, 'profile']);
