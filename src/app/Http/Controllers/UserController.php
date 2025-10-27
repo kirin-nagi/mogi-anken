@@ -41,10 +41,16 @@ class UserController extends Controller
 
         return redirect()->route('index');
     }
+
+    /*ログイン画面表示*/
+    public function showlogin()
+    {
+        return view('auth.login');
+    }
     /*ログイン画面 */
     public function login(LoginRequest $request)
     {
-        $user_info = $request->validate([
+        $user_info = $request->validated([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);

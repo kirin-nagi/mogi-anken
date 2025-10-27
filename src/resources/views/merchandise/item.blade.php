@@ -36,7 +36,7 @@
             <div class="detail__subtitle">
                 <h2>商品の情報</h2>
                 <h4>カテゴリー</h4>
-                {{ $categories->category_name}}
+                {{ $category->category_name}}
                 <h4>商品の状態</h4>
                 <h4>{{ $product->condition }}</h4>
             </div>

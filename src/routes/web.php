@@ -20,6 +20,7 @@ use App\Http\Controllers\CategoryController;
 
 Route::get('/register', [UserController::class, 'register']);
 Route::post('/register', [UserController::class, 'store']);
+Route::get('/login', [UserController::class, 'showlogin']);
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/', [ItemController::class, 'index'])->name('index');
 Route::get('/item/{item_id}',[ProductController::class, 'showdetail'])->name('item.show');/*商品詳細画面*/
