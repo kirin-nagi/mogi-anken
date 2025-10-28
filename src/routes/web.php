@@ -31,7 +31,6 @@ Route::post('/item/{item_id}/comment',[ProductController::class, 'store'])->name
 Route::get('/?tab=mylist',[ItemController::class, 'mylist']);/*<-ここのクリエも変更*/
 Route::get('/mypage',[ItemController::class, 'sell'])->name('mypage.sell');
 Route::post('/mypage',[ItemController::class, 'create'])->name('mypage.create');/*middlewareの中に後で入れる*/
-/*DBに打ち込むためのroute*/
 
 Route::middleware('auth')->group(function (){
     Route::post('/mypage/profile', [ProfileController::class, 'profile']);

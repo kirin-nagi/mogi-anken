@@ -37,7 +37,7 @@ class ItemController extends Controller
         return view('merchandise.sell');
     }
 
-    // 出品する為の設定 //
+    // 出品する為の設定  productcontrollerにうつす//
     public function create(ExhibitionRequest $request){
 
         $path = null;
@@ -55,7 +55,7 @@ class ItemController extends Controller
     }
 
         Product::create([
-            'image' => $path,
+            'image' => "/storage/".$path,
             'condition' => $request->condition,
             'name' => $request->name,
             'brand' => $request->brand,

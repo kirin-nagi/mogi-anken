@@ -36,7 +36,7 @@
             <div class="detail__subtitle">
                 <h2>商品の情報</h2>
                 <h4>カテゴリー</h4>
-                {{ $category->category_name}}
+                <!-- $categoryをここに書く -->
                 <h4>商品の状態</h4>
                 <h4>{{ $product->condition }}</h4>
             </div>
@@ -63,7 +63,7 @@
                     </div>
                 </form>
                 <div class="comment__button">
-                    <form method="post" action="{{ route('sell.store') }}">
+                    <form method="post" action="">
                         <button class="comment__button-submit" type="submit">コメントを送信する</button>
                     </form>
                 </div>
