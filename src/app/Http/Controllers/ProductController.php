@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ExhibitionRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use App\Models\User;
@@ -57,7 +58,7 @@ class ProductController extends Controller
     public function sell() {
     $products = Product::all();
     
-    return view('page.sell', compact('products'));
+    return view('page.sell', []);
 }
 
     

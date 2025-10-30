@@ -25,13 +25,13 @@ Route::get('/login', [UserController::class, 'showlogin']);
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/', [ItemController::class, 'index'])->name('index');
 Route::get('/item/{item_id}',[ProductController::class, 'showdetail'])->name('item.show');/*商品詳細画面*/
-/*Route::get('/item/{item_id}', [ItemController::class, 'detail']);*/
 Route::post('/item/{item_id}',[ProductController::class, 'detail'])->name('like');
 Route::delete('/item/{item_id}',[ProductController::class, 'detail'])->name('unlike');
 Route::post('/item/{item_id}/comment',[ProductController::class, 'store'])->name('comment');
 Route::get('/?tab=mylist',[ItemController::class, 'mylist']);/*<-ここのクリエも変更*/
-Route::get('/mypage',[ItemController::class, 'sell'])->name('mypage.sell');
-Route::post('/mypage',[ItemController::class, 'create'])->name('mypage.create');/*middlewareの中に後で入れる*/
+Route::get('/mypage?page=sell',[ProductController::class, 'sell'])->name('mypage.sell');
+Route::post('/mypage?page=sell',[ProductController::class, 'create'])->name('mypage.create');/*middlewareの中に後で入れる*/
+
 
 Route::middleware('auth')->group(function (){
     Route::post('/mypage/profile', [ProfileController::class, 'profile']);
@@ -45,6 +45,6 @@ Route::get('/mypage/profile', [ProfileController::class, 'showprofile']);
 /*プロフィール画面・確認用*/
 Route::get('/mypage', [ProfileController::class, 'showprofile2']);
 /*商品出品画面・確認用*/
-Route::get('/sell',[ItemController::class, 'showsell']);
+Route::get('/sell',[ProductController::class, 'showsell']);
 /*送付先住所変更画面確認用*/
 Route::get('/purchase/address/{item_id}', [UserController::class, 'showaddress']);
