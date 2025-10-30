@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
-use App\Models\Like;
 use App\Models\User;
 use App\Models\Comment;
 
@@ -17,44 +16,51 @@ class ProductController extends Controller
         $product = Product::findOrFail($item_id);
 
         return view('merchandise.item', compact('product'));
-
-    }
-    //いいねをつける//
-    public function like(Product $product){
-        $like = New Like();
-        $like->product_id = $product->id;
-        $like->user_id = $user->id;
-        $like->save();
-
-        return back();
     }
 
-    //いいねを削除する//
-    public function unlike(Product $product){
-        $user = Auth::user()->id;
-        $like = Like::where('product_id', $product->id)->where('user_id', $user->id)->first();
-        $like->delete();
-    }
-
-    //いいねを表示するページ//
-    public function detail(Product $product)
+    // 出品画面表示 //
+    public function showsell()
     {
-        $user = Auth::user();
-        $like = Like::where('product_id', $product->id)->where('user_id', $user->id)->first();
-        return view('merchandise.item',compact('product','like','user'));
+        return view('merchandise.sell');
     }
 
-    //コメント投稿処理//
-    public function comment(Request $request, $item_id)
-    {
-        $comment = new Comment();
-        $comment->comment = $request->comment;
-        $comment->product_id = $item_id;
-        $comment->user_id = Auth::id();
-        $comment->save();
+    // 出品する為の設定  //
+    public function create(ExhibitionRequest $request){
 
-        return redirect("/item/{$item_id}");
+        $path = null;
+        if($request->hasFile('image')){
+            $path = $request->file('image')->store('image', 'public');
+        }
+        
+        if(!empty($request->category_name)){
+
+            foreach($request->category_name as $categoryName){
+            Sell::create([
+            'category_name' => $categoryName,
+        ]);
+        }
     }
+
+        Product::create([
+            'image' => "/storage/".$path,
+            'condition' => $request->condition,
+            'name' => $request->name,
+            'brand' => $request->brand,
+            'description' => $request->description,
+            'price' => $request->price,
+        ]);
+        //auth機能を加える//
+
+        return redirect()->route('mypage.sell');
+    }
+
+    public function sell() {
+    $products = Product::all();
+    
+    return view('page.sell', compact('products'));
+}
+
+    
 }
 
 //商品詳細・いいね・コメント//

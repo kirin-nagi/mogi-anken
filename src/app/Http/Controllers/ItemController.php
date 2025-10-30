@@ -31,47 +31,6 @@ class ItemController extends Controller
         return view('index', compact('products'));
     }
 
-    // 出品画面表示 //
-    public function showsell()
-    {
-        return view('merchandise.sell');
-    }
-
-    // 出品する為の設定  productcontrollerにうつす//
-    public function create(ExhibitionRequest $request){
-
-        $path = null;
-        if($request->hasFile('image')){
-            $path = $request->file('image')->store('image', 'public');
-        }
-        
-        if(!empty($request->category_name)){
-
-            foreach($request->category_name as $categoryName){
-            Sell::create([
-            'category_name' => $categoryName,
-        ]);
-        }
-    }
-
-        Product::create([
-            'image' => "/storage/".$path,
-            'condition' => $request->condition,
-            'name' => $request->name,
-            'brand' => $request->brand,
-            'description' => $request->description,
-            'price' => $request->price,
-        ]);
-        //auth機能を加える//
-
-        return redirect()->route('mypage.sell');
-    }
-
-    public function sell() {
-    $products = Product::all();
-    
-    return view('page.sell', compact('products'));
-}
 }
 
 

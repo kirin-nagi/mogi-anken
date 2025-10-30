@@ -62,3 +62,5 @@ docker/mysql/data/binlog.000041
 src/resources/views/merchandise/sell.blade.php
 docker/mysql/data/binlog.000042
 docker/mysql/data/binlog.000043
+docker/mysql/data/binlog.000044
+docker/mysql/data/binlog.000045
