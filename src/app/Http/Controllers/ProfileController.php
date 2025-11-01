@@ -16,17 +16,12 @@ class ProfileController extends Controller
         return view('user.edit');
     }
 
-    public function profile()
-    {
-        return view('user.edit');
-    }
-
     public function showprofile2(){
 
         return view('user.profile');
     }
 
-    public function updateprofile(Request $request)
+    public function updateprofile(ProfileRequest $request)
     {
         $user = Auth::user();
 
@@ -41,6 +36,7 @@ class ProfileController extends Controller
         } else {
             Address::create([
                 'user_id' => $user->id,
+                'name' => $request->name,
                 'postcode' => $request->postcode,
                 'address' => $request->address,
                 'building' => $request->building ?? null,
@@ -50,8 +46,6 @@ class ProfileController extends Controller
         $user->update([
             'name' =>$request->name,
         ]);
-
-        $request->session()->regenerate();
 
         return redirect('/');
 

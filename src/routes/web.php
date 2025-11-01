@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ItemController;
@@ -21,6 +22,7 @@ use App\Http\Controllers\LikeController;
 
 Route::get('/register', [UserController::class, 'register']);
 Route::post('/register', [UserController::class, 'store']);
+Route::post('/mypage/profile', [ProfileController::class, 'updateprofile'])->name('mypage.profile');
 Route::get('/login', [UserController::class, 'showlogin']);
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/', [ItemController::class, 'index'])->name('index');
@@ -34,7 +36,6 @@ Route::post('/mypage?page=sell',[ProductController::class, 'create'])->name('myp
 
 
 Route::middleware('auth')->group(function (){
-    Route::post('/mypage/profile', [ProfileController::class, 'profile']);
     Route::post('/',[ProfileController::class, 'updateprofile']);
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy']);
 });

@@ -24,8 +24,8 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'min|20'],
-            'postcode' => ['required'/*ハイフンありで設定する*/],
+            'name' => ['required'],
+            'postcode' => ['required','regex:/^\d{3}-\d{4}$/'],
             'address' => ['required'],
         ];
     }
@@ -33,11 +33,10 @@ class ProfileRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' =>'' ,
-            'name.min|20' => '',
-            'postcode.required' =>'',
-            'postcode.ハイフン設定' =>'',
-            'address.required' => '',
+            'name.required' =>'ユーザー名を入力してください。' ,
+            'postcode.required' =>'郵便番号を入力してください。',
+            'postcode.regex' =>'郵便番号は「123-4567」の形式で入力してください。',
+            'address.required' => '住所を入力してください。',
 
         ];
     }

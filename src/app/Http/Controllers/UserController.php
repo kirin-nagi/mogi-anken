@@ -31,9 +31,11 @@ class UserController extends Controller
         return redirect('/mypage/profile');
     }
     /*プロフィール設定画面*/
-    public function create(ProfileRequest $request)
+    public function update(ProfileRequest $request, $id)
     {
-        Address::where('id', $request->id)->update([
+        $address = Address::findOrFail($id);
+
+        Address::update([
             'name'=>$request->name,
             'postcode'=>$request->postcode,
             'address'=>$request->address,
