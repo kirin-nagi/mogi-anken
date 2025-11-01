@@ -18,7 +18,7 @@
                     <img src='/storage/img/logo.svg' width="250">
                 </a>
                 <div class="form-group">
-                    <div class="input-group">
+                    <div class="input-group search-box">
                         <input type="text" name="keyword" class="form-control" placeholder="なにをお探しですか？" value="{{ request()->input('keyword') }}" >
                     </div>
                 </div>
@@ -49,6 +49,7 @@
 
     <main>
     @yield('content')
+    @yield('scripts')
     </main>
 </body>
 

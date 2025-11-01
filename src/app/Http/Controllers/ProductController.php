@@ -58,7 +58,7 @@ class ProductController extends Controller
     public function sell() {
     $products = Product::all();
     
-    return view('page.sell', []);
+    return view('page.sell', );
 }
 
     

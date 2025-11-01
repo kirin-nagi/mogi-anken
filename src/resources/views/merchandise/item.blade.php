@@ -7,15 +7,17 @@
 
 @section('content')
 <div class="detail-content">
-    <form action="/item/{item_id}" method="post">
+    <form action="/item/{item_id}" method="post" class="form-content">
         @csrf
         <div class="left-content">
-            <img src="{{ asset($product->image) }}" class="img-content" width="400" />
+            <img src="{{ asset($product->image) }}" class="img-content" width="600" />
         </div>
         <div class="right-content">
-            <h1>{{ $product->name }}</h1>
-            <h4>{{ $product->brand }}</h4>
-            <h2>{{ $product->price }}</h2>
+            <div class="product-item">
+                <h1>{{ $product->name }}</h1>
+                <h4>{{ $product->brand }}</h4>
+                <h2>{{ $product->price }}</h2>
+            </div>
             <a href="javascript:void(0);" class="like-link" data-post-id="{{ $product->id }}">
                 <span class="star {{ isset($like) && $like ? 'text-red-400' : 'text-white-400' }}">
                     ☆
@@ -25,20 +27,23 @@
             </a>
             <form class="form" action="/purchase/{item_id}" method="post">
                 @csrf
-                <button class="form__button-submit" type="submit">購入手続きへ
-                </button>
+                <div class="form-button">
+                    <button class="form__button-submit" type="submit">購入手続きへ</button>
+                </div>
             </form>
             <div class="detail__subtitle">
                 <h2>商品説明</h2>
-                <h4>{{ $product->condition }}</h4>
-                <h4>{{ $product->description }}</h4>
+                {{ $product->condition }}
+                {{ $product->description }}
             </div>
             <div class="detail__subtitle">
                 <h2>商品の情報</h2>
                 <h4>カテゴリー</h4>
                 <!-- $categoryをここに書く -->
-                <h4>商品の状態</h4>
-                <h4>{{ $product->condition }}</h4>
+                <div class="condition-group">
+                    <h4>商品の状態</h4>
+                    {{ $product->condition }}
+                </div>
             </div>
             <div class="comment__group">
                 @forelse($product->comments as $comment)

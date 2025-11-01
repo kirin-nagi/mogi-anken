@@ -92,8 +92,9 @@ f<!-- 商品出品画面-->
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--text">
-                        <input type="text" name="price" placeholder="￥"  />
+                        <input type="text" name="price" id="priceInput" placeholder="￥"  />
                     </div>
+                    <div id="pricePreview" class="form__price-preview">￥0（税込）</div>
                 </div>
             </div>
         </div>
@@ -102,21 +103,46 @@ f<!-- 商品出品画面-->
         </div>
     </form>
 </div>
-<script>
-document.getElementById('image').addEventListener('change', function(event){
-    const preview = document.getElementById('preview');
-    const file = event.target.files[0];
+@endsection
 
-    if(file){
+@section('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const imageInput = document.getElementById('image');
+    const preview = document.getElementById('preview');
+
+    if (imageInput && preview) {
+    imageInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+
+        if (file) {
         const reader = new FileReader();
-        reader.onload = function(e){
+        reader.onload = function(e) {
             preview.src = e.target.result;
             preview.style.display = 'block';
         }
         reader.readAsDataURL(file);
-    } else {
+        } else {
         preview.src = '#';
         preview.style.display = 'none';
+        }
+    });
+    }
+
+    const priceInput = document.getElementById('priceInput');
+    const pricePreview = document.getElementById('pricePreview');
+
+    if (priceInput && pricePreview) {
+    priceInput.addEventListener('input', function () {
+        let value = priceInput.value.replace(/[^\d]/g, '');
+
+        if (value === '') {
+        pricePreview.textContent = '￥0（税込）';
+        return;
+        }
+        const formatted = Number(value).toLocaleString();
+        pricePreview.textContent = `￥${formatted}（税込）`;
+    });
     }
 });
 </script>
