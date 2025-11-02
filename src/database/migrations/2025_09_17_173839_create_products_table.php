@@ -15,6 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
             $table->string('name')->comment('商品名');
             $table->string('price')->comment('価格');
             $table->string('brand')->comment('ブランド名')->nullable();

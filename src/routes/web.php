@@ -23,7 +23,7 @@ use App\Http\Controllers\LikeController;
 Route::get('/register', [UserController::class, 'register']);
 Route::post('/register', [UserController::class, 'store']);
 Route::post('/mypage/profile', [ProfileController::class, 'updateprofile'])->name('mypage.profile');
-Route::get('/login', [UserController::class, 'showlogin']);
+Route::get('/login', [UserController::class, 'showlogin'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/', [ItemController::class, 'index'])->name('index');
 Route::get('/item/{item_id}',[ProductController::class, 'showdetail'])->name('item.show');/*商品詳細画面*/
@@ -31,8 +31,8 @@ Route::post('/item/{item_id}',[ProductController::class, 'detail'])->name('like'
 Route::delete('/item/{item_id}',[ProductController::class, 'detail'])->name('unlike');
 Route::post('/item/{item_id}/comment',[ProductController::class, 'store'])->name('comment');
 Route::get('/?tab=mylist',[ItemController::class, 'mylist']);/*<-ここのクリエも変更*/
-Route::get('/mypage?page=sell',[ProductController::class, 'sell'])->name('mypage.sell');
-Route::post('/mypage?page=sell',[ProductController::class, 'create'])->name('mypage.create');/*middlewareの中に後で入れる*/
+Route::get('/mypage/sell',[ProductController::class, 'sell'])->name('mypage.sell');
+Route::post('/mypage/sell',[ProductController::class, 'create'])->name('mypage.create');/*middlewareの中に後で入れる*/
 
 
 Route::middleware('auth')->group(function (){

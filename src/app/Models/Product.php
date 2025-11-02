@@ -11,6 +11,7 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'name',
         'price',
         'brand',
@@ -32,5 +33,10 @@ class Product extends Model
     public function comments(): HasMany
     {
         return $this->hasMany('App\Models\Comment');
+    }
+
+    public function categories()
+    {
+        return $this->hasMany(Sell::class);
     }
 }

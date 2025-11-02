@@ -11,5 +11,10 @@ class Sell extends Model
 
     protected $table = 'categories';
     
-    protected $fillable = ['category_name'];
+    protected $fillable = ['category_name','product_id'];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

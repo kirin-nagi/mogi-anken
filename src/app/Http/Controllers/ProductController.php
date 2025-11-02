@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Comment;
+use App\Models\Sell;
 
 class ProductController extends Controller
 {
@@ -16,7 +17,9 @@ class ProductController extends Controller
 
         $product = Product::findOrFail($item_id);
 
-        return view('merchandise.item', compact('product'));
+        $categories = Sell::all();
+
+        return view('merchandise.item', compact('product','categories'));
     }
 
     // 出品画面表示 //
@@ -28,21 +31,15 @@ class ProductController extends Controller
     // 出品する為の設定  //
     public function create(ExhibitionRequest $request){
 
+        $user = Auth::user();
+
         $path = null;
         if($request->hasFile('image')){
             $path = $request->file('image')->store('image', 'public');
         }
-        
-        if(!empty($request->category_name)){
 
-            foreach($request->category_name as $categoryName){
-            Sell::create([
-            'category_name' => $categoryName,
-        ]);
-        }
-    }
-
-        Product::create([
+        $product = Product::create([
+            'user_id' => $user->id,
             'image' => "/storage/".$path,
             'condition' => $request->condition,
             'name' => $request->name,
@@ -51,8 +48,19 @@ class ProductController extends Controller
             'price' => $request->price,
         ]);
         //auth機能を加える//
+        
+        if(!empty($request->category_name)){
 
-        return redirect()->route('mypage.sell');
+            foreach($request->category_name as $categoryName){
+            Sell::create([
+            'name' => $categoryName,
+            'category_name' => $categoryName,
+            'product_id' => $product->id,
+        ]);
+        }
+    }
+
+        return redirect('/');
     }
 
     public function sell() {

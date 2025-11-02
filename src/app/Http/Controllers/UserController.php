@@ -52,11 +52,9 @@ class UserController extends Controller
     /*ログイン画面 */
     public function login(LoginRequest $request)
     {
-        $user_info = $request->validated([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
 
+        $user_info = $request->validated();
+        
         if(Auth::attempt($user_info)) {
             $request->session()->regenerate();
             return redirect('/');

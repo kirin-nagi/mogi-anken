@@ -39,7 +39,9 @@
             <div class="detail__subtitle">
                 <h2>商品の情報</h2>
                 <h4>カテゴリー</h4>
-                <!-- $categoryをここに書く -->
+                @foreach($product->categories as $category)
+                    {{ $category->category_name }}
+                @endforeach
                 <div class="condition-group">
                     <h4>商品の状態</h4>
                     {{ $product->condition }}
