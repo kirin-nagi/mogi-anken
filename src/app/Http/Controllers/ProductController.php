@@ -48,7 +48,7 @@ class ProductController extends Controller
             'price' => $request->price,
         ]);
         //auth機能を加える//
-        
+
         if(!empty($request->category_name)){
 
             foreach($request->category_name as $categoryName){
@@ -65,8 +65,24 @@ class ProductController extends Controller
 
     public function sell() {
     $products = Product::where('user_id', Auth::id())->get();
-    
+
     return view('page.sell');
+    }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->input('keyword');
+
+        $query =\App\Models\Product::query();
+
+        if(!empty($keyword)){
+            $query->where('name', 'like', "%{$keyword}%")
+            ->orWhere('description', 'like', "%{$keyword}%");
+        }
+
+        $products = $query->get();
+
+        return view('index',compact('products', 'keyword'));
     }
 
 }

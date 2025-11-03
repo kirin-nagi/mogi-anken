@@ -18,9 +18,9 @@
                     <img src='/storage/img/logo.svg' width="250">
                 </a>
                 <div class="form-group">
-                    <div class="input-group search-box">
+                    <form action="/" method="GET" class="input-group search-box">
                         <input type="text" name="keyword" class="form-control" placeholder="なにをお探しですか？" value="{{ request()->input('keyword') }}" >
-                    </div>
+                    </form>
                 </div>
                 <nav>
                     <ul class="header-nav">
@@ -49,8 +49,48 @@
 
     <main>
     @yield('content')
+    <div class="search-results"></div>
     @yield('scripts')
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLOaded', function(){
+            const input = document.getElementById('search');
+            const results = document.querySelector('.search-results');
+            let timer = null;
+
+            input.addEventListener('keyup', function(){
+                clearTimer('timer');
+                const keyword = input.value.trim();
+
+                if(keyword.length === 0){
+                    results.innerHTML = '';
+                    return;
+                }
+
+                timer = setTimeout(() => {
+                    fetch('/search?keyword=${encodeURIComponent(keyword)}')
+                        .then(res => res.json())
+                        .then(date => {
+                            if (date.length === 0){
+                                results.innerHTML = '<p>該当する商品がありません</p>';
+                            } else {
+                                let html = '<ul class="list-group">';
+                                date.forEach(p =>{
+                                    html +='
+                                    <li class="list-group-item">
+                                        <a href="/products/${p.id}">${p.name}</a>
+                                    </li>';
+                                });
+                                html += '</ul>';
+                                results.innerHTML = html;
+                            }
+                        })
+                        .catch(err => console.error('検索エラー:', err));
+                }, 300);
+            });
+        });
+    </script>
 </body>
 
 </html>
