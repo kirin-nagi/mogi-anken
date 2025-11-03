@@ -98,6 +98,12 @@ label input:checked + span{
     height: 100px;
 }
 
+.sell__error {
+    height: 20px;
+    color: #ff0000;
+    text-align: left;
+}
+
 .form__button {
     margin-top: 50px;
     text-align: center;

@@ -24,7 +24,14 @@ class CommentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'comment' => ['required', 'max:255'],
+        ];
+    }
+
+    public function massages()
+    {
+        return [
+            'comment.required' =>'コメントを入力してください'
         ];
     }
 }

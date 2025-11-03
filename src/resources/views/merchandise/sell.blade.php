@@ -21,6 +21,11 @@ f<!-- 商品出品画面-->
                 </label>
                 <img id="preview" style="display:none; width:200px; margin-top:10px;">
             </div>
+            <div class="sell__error">
+                @error('image')
+                {{ $message }}
+                @enderror
+            </div>
         </div>
         <div class="sell__title">
             <h2>商品の詳細</h2>
@@ -41,6 +46,11 @@ f<!-- 商品出品画面-->
                 <label><input type="checkbox" value="おもちゃ" name="category_name[]"><span>おもちゃ</span></label>
                 <label><input type="checkbox" value="ベビー・キッズ" name="category_name[]"><span>ベビー・キッズ</span></label>
             </div>
+            <div class="sell__error">
+                @error('category_name[]')
+                {{ $message }}
+                @enderror
+            </div>
         </div>
         <div class="sell__subtitle">
             <h3>商品の状態</h3>
@@ -53,6 +63,11 @@ f<!-- 商品出品画面-->
                     <option value="状態が悪い">状態が悪い</option>
                 </select>
             </div>
+            <div class="sell__error">
+                @error('condition')
+                {{ $message }}
+                @enderror
+            </div>
         </div>
         <div class="sell__title">
             <h2>商品名と説明</h2>
@@ -64,6 +79,11 @@ f<!-- 商品出品画面-->
                     <div class="form__input--text">
                         <input type="text" name="name" />
                     </div>
+                    <div class="sell__error">
+                        @error('name')
+                        {{ $message }}
+                        @enderror
+                    </div>
                 </div>
             </div>
             <div class="form__group">
@@ -73,6 +93,11 @@ f<!-- 商品出品画面-->
                 <div class="form__group-content">
                     <div class="form__input--text">
                         <input type="text" name="brand" />
+                    </div>
+                    <div class="sell__error">
+                        @error('brand')
+                        {{ $message }}
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -84,6 +109,11 @@ f<!-- 商品出品画面-->
                     <div class="form__input--textarea">
                         <textarea name="description"></textarea>
                     </div>
+                    <div class="sell__error">
+                        @error('description')
+                        {{ $message }}
+                        @enderror
+                    </div>
                 </div>
             </div>
             <div class="form__group">
@@ -93,6 +123,11 @@ f<!-- 商品出品画面-->
                 <div class="form__group-content">
                     <div class="form__input--text">
                         <input type="text" name="price" id="priceInput" placeholder="￥"  />
+                    </div>
+                    <div class="sell__error">
+                        @error('price')
+                        {{ $message }}
+                        @enderror
                     </div>
                 </div>
             </div>
