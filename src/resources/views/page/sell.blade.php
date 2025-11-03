@@ -17,7 +17,7 @@
     </div>
     <div class="product-content">
         <div class="product-wrapper">
-            @if(isset($products) && count($products) > 0)
+            @if(isset($products) && $products->count() > 0)
                 @foreach ($products as $product)
                 <a href="/item/{{ $product->id }}" class="product-link">
                     @if(product->image)

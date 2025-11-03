@@ -60,16 +60,13 @@ class ProductController extends Controller
         }
     }
 
-        return redirect('/');
+        return redirect('/mypage');
     }
 
     public function sell() {
-    $products = Product::all();
+    $products = Product::where('user_id', Auth::id())->get();
     
-    return view('page.sell', );
-}
+    return view('page.sell');
+    }
 
-    
 }
-
-//商品詳細・いいね・コメント//

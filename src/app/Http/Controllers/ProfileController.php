@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Address;
+use App\Models\Product;
 use App\Http\Requests\ProfileRequest;
 
 
@@ -14,11 +15,6 @@ class ProfileController extends Controller
     public function showprofile(){
 
         return view('user.edit');
-    }
-
-    public function showprofile2(){
-
-        return view('user.profile');
     }
 
     public function updateprofile(ProfileRequest $request)
@@ -50,9 +46,10 @@ class ProfileController extends Controller
         return redirect('/');
 
     }
+
+    public function showprofile2() {
+    $products = Product::where('user_id', Auth::id())->get();
+
+    return view('user.profile', compact('products'));
+    }
 }
-
-
-
-/*アイコンも設定する？*/
-/* profile画面・編集画面*/

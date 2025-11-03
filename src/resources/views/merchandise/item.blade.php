@@ -67,6 +67,11 @@
                         <div class="comment__input--textarea">
                             <textarea name="comment"></textarea>
                         </div>
+                        <div class="comment__error">
+                            @error('comment')
+                            {{ $message }}
+                            @enderror
+                        </div>
                     </div>
                 </form>
                 <div class="comment__button">

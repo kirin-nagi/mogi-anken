@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-<dic class="profile-content">
+<div class="profile-content">
     <div class="profile-heading">
         <div class="icon">
             <div class="circle__img">
@@ -30,11 +30,11 @@
     </div>
     <div class="product-content">
         <div class="product-wrapper">
-            @if(isset($products) && count($products) > 0)
+            @if(isset($products) && $products->count() > 0)
                 @foreach ($products as $product)
                 <a href="/item/{{ $product->id }}" class="product-link">
-                    @if(product->image)
-                    <img src="{{ asset('storage/' . $product->image) }}" class="img-content" width="250" />
+                    @if($product->image)
+                    <img src="{{ asset($product->image) }}" class="img-content" width="250" />
                     @endif
                     <p>{{$product->name}}</p>
                 </a>
