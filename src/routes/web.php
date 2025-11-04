@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function (){
     Route::get('/sell',[ProductController::class, 'showsell']);
     Route::get('/mypage/sell',[ProductController::class, 'sell'])->name('mypage.sell');
     Route::post('/mypage/sell',[ProductController::class, 'create'])->name('mypage.create');
+    Route::get('/mypage/profile',[ProfileController::class, 'edit']);
 });
 
 

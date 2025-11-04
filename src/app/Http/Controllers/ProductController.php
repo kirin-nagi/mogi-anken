@@ -66,7 +66,7 @@ class ProductController extends Controller
     public function sell() {
     $products = Product::where('user_id', Auth::id())->get();
 
-    return view('page.sell');
+    return view('page.sell',compact('products'));
     }
 
     public function search(Request $request)

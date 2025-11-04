@@ -12,12 +12,16 @@
     </div>
     <form method="post" action="{{route('mypage.profile')}}" enctype="multipart/form-data">
         @csrf
-        <div class="icon">
+        <div class="circle__img">
+            @if($address->image == null)
+                <div style="width: 100px; height: 100px; background-color: #9e9d9dff; border-radius: 50%; margin: 20px auto;"></div>
+            @else
+                <img src="/storage/{{ $address->image}}" width="125">
+            @endif
             <input type="file" id="image" name="image" class="image-upload">
             <label for="image" class="image-label">
             画像を選択する
             </label>
-            <img id="preview" style="display:none;" width:200px; margin-top:10px;>
         </div>
         <div class="form__group">
             <div class="form__group-title">
