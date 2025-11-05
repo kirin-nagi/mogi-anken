@@ -16,8 +16,9 @@ class ProfileController extends Controller
 
         $user = Auth::user();
         $address = Address::where('user_id', $user->id)->first();
+        $postcode = $address;
 
-        return view('user.edit', compact('address'));
+        return view('user.edit', compact('user', 'postcode', 'address'));
     }
 
     public function updateprofile(ProfileRequest $request)

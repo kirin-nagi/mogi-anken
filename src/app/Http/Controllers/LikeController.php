@@ -10,6 +10,9 @@ class LikeController extends Controller
 {
     //いいねをつける//
     public function like(Product $product){
+
+        $user = Auth::user();
+
         $like = New Like();
         $like->product_id = $product->id;
         $like->user_id = $user->id;
@@ -20,9 +23,13 @@ class LikeController extends Controller
 
     //いいねを削除する//
     public function unlike(Product $product){
-        $user = Auth::user()->id;
+        $user = Auth::user();
         $like = Like::where('product_id', $product->id)->where('user_id', $user->id)->first();
-        $like->delete();
+
+        if($like){
+            $like->delete();
+        }
+
     }
 
     //いいねを表示するページ//

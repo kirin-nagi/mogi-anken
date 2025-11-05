@@ -20,7 +20,7 @@
             @if(isset($products) && $products->count() > 0)
                 @foreach ($products as $product)
                 <a href="/item/{{ $product->id }}" class="product-link">
-                    @if(product->image)
+                    @if($product->image)
                     <img src="{{ asset('storage/' . $product->image) }}" class="img-content" width="250" />
                     @endif
                     <p>{{$product->name}}</p>

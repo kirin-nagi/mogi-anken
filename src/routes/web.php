@@ -27,8 +27,6 @@ Route::get('/login', [UserController::class, 'showlogin'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/', [ItemController::class, 'index'])->name('index');
 Route::get('/item/{item_id}',[ProductController::class, 'showdetail'])->name('item.show');/*商品詳細画面*/
-Route::post('/item/{item_id}',[ProductController::class, 'detail'])->name('like');
-Route::delete('/item/{item_id}',[ProductController::class, 'detail'])->name('unlike');
 Route::post('/item/{item_id}/comment',[ProductController::class, 'store'])->name('comment');
 Route::get('/?tab=mylist',[ItemController::class, 'mylist']);/*<-ここのクリエも変更*/
 Route::get('/',[ProductController::class, 'search'])->name('search');/*検索*/
@@ -38,9 +36,12 @@ Route::middleware('auth')->group(function (){
     Route::post('/',[ProfileController::class, 'updateprofile']);
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy']);
     Route::get('/sell',[ProductController::class, 'showsell']);
-    Route::get('/mypage/sell',[ProductController::class, 'sell'])->name('mypage.sell');
-    Route::post('/mypage/sell',[ProductController::class, 'create'])->name('mypage.create');
+    Route::get('/mypage',[ProductController::class, 'sell'])->name('mypage.sell');
+    Route::post('/mypage',[ProductController::class, 'create'])->name('mypage.create');
     Route::get('/mypage/profile',[ProfileController::class, 'edit']);
+    Route::get('/item/{item_id}', [ProductController::class, 'detail'])->name('item.detail');
+    Route::post('/item/{item_id}',[ProductController::class, 'like'])->name('like');
+    Route::delete('/item/{item_id}',[ProductController::class, 'unlike'])->name('unlike');
 });
 
 
@@ -48,7 +49,6 @@ Route::middleware('auth')->group(function (){
 Route::get('/mypage/profile', [ProfileController::class, 'showprofile']);
 /*プロフィール画面・確認用*/
 Route::get('/mypage', [ProfileController::class, 'showprofile2']);
-/*商品出品画面・確認用*/
 
 /*送付先住所変更画面確認用*/
 Route::get('/purchase/address/{item_id}', [UserController::class, 'showaddress']);

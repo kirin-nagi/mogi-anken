@@ -47,7 +47,6 @@ class ProductController extends Controller
             'description' => $request->description,
             'price' => $request->price,
         ]);
-        //auth機能を加える//
 
         if(!empty($request->category_name)){
 
