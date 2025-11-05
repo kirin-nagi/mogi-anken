@@ -39,16 +39,16 @@ Route::middleware('auth')->group(function (){
     Route::get('/mypage',[ProductController::class, 'sell'])->name('mypage.sell');
     Route::post('/mypage',[ProductController::class, 'create'])->name('mypage.create');
     Route::get('/mypage/profile',[ProfileController::class, 'edit']);
-    Route::get('/item/{item_id}', [ProductController::class, 'detail'])->name('item.detail');
+    Route::get('/item/{item_id}', [ProductController::class, 'showdetail'])->name('item.detail');
     Route::post('/item/{item_id}',[ProductController::class, 'like'])->name('like');
     Route::delete('/item/{item_id}',[ProductController::class, 'unlike'])->name('unlike');
 });
 
 
 /*プロフィール設定画面・確認用*/
-Route::get('/mypage/profile', [ProfileController::class, 'showprofile']);
+Route::get('/mypage/profile', [ProfileController::class, 'editprofile']);
 /*プロフィール画面・確認用*/
-Route::get('/mypage', [ProfileController::class, 'showprofile2']);
+Route::get('/mypage', [ProfileController::class, 'showprofile']);
 
 /*送付先住所変更画面確認用*/
 Route::get('/purchase/address/{item_id}', [UserController::class, 'showaddress']);

@@ -12,7 +12,7 @@ use App\Http\Requests\ProfileRequest;
 class ProfileController extends Controller
 {
     /*プロフィール設定画面・確認用*/
-    public function showprofile(){
+    public function editprofile(){
 
         $user = Auth::user();
         $address = Address::where('user_id', $user->id)->first();
@@ -59,16 +59,14 @@ class ProfileController extends Controller
     }
 
 
-    public function showprofile2()
+    public function showprofile()
     {
         $user = Auth::user();
         $address = Address::where('user_id', $user->id)->first();
 
-        return view('user.profile', compact('user','address'));
-
         $products = Product::where('user_id', Auth::id())->get();
 
-        return view('user.profile', compact('products'));
+        return view('user.profile', compact('user','address','products'));
     }
 
     public function edit()
