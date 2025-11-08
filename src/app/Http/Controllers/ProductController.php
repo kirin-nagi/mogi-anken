@@ -30,7 +30,6 @@ class ProductController extends Controller
 
     // 出品する為の設定  //
     public function create(ExhibitionRequest $request){
-
         $user = Auth::user();
 
         $path = null;
@@ -50,7 +49,8 @@ class ProductController extends Controller
 
         if(!empty($request->category_name)){
 
-            foreach($request->category_name as $categoryName){
+            $categories = $request->input('category_name', []);
+            foreach($categories as $categoryName){
             Sell::create([
             'name' => $categoryName,
             'category_name' => $categoryName,

@@ -38,8 +38,6 @@ Route::middleware('auth')->group(function (){
     Route::get('/sell',[ProductController::class, 'showsell']);
     Route::get('/mypage',[ProductController::class, 'sell'])->name('mypage.sell');
     Route::post('/mypage',[ProductController::class, 'create'])->name('mypage.create');
-    Route::get('/mypage/profile',[ProfileController::class, 'edit']);
-    Route::get('/item/{item_id}', [ProductController::class, 'showdetail'])->name('item.detail');
     Route::post('/item/{item_id}',[ProductController::class, 'like'])->name('like');
     Route::delete('/item/{item_id}',[ProductController::class, 'unlike'])->name('unlike');
 });

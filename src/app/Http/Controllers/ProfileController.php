@@ -12,6 +12,8 @@ use App\Http\Requests\ProfileRequest;
 class ProfileController extends Controller
 {
     /*プロフィール設定画面・確認用*/
+
+
     public function editprofile(){
 
         $user = Auth::user();
@@ -67,10 +69,5 @@ class ProfileController extends Controller
         $products = Product::where('user_id', Auth::id())->get();
 
         return view('user.profile', compact('user','address','products'));
-    }
-
-    public function edit()
-    {
-        return view('user.edit');
     }
 }

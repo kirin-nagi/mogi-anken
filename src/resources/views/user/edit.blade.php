@@ -13,10 +13,10 @@
     <form method="post" action="{{route('mypage.profile')}}" enctype="multipart/form-data">
         @csrf
         <div class="circle__img">
-            @if($address->image == null)
-                <div style="width: 100px; height: 100px; background-color: #9e9d9dff; border-radius: 50%; margin: 20px auto;"></div>
-            @else
+            @if( isset($address) && $address->image)
                 <img src="/storage/{{ $address->image}}" width="125">
+            @else
+                <div style="width: 100px; height: 100px; background-color: #9e9d9dff; border-radius: 50%; margin: 20px auto;"></div>
             @endif
             <input type="file" id="image" name="image" class="image-upload">
             <label for="image" class="image-label">
