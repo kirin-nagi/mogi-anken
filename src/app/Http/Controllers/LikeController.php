@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\CommentRequest;
 use App\Models\Like;
+use App\Models\Product;
+use App\Models\Comment;
 
 class LikeController extends Controller
 {
     //いいねをつける//
-    public function like(Product $product){
+    public function like($item_id){
 
         $user = Auth::user();
 
         $like = New Like();
-        $like->product_id = $product->id;
+        $like->product_id = $item_id;
         $like->user_id = $user->id;
         $like->save();
 
@@ -22,7 +25,7 @@ class LikeController extends Controller
     }
 
     //いいねを削除する//
-    public function unlike(Product $product){
+    public function unlike($item_id){
         $user = Auth::user();
         $like = Like::where('product_id', $product->id)->where('user_id', $user->id)->first();
 
@@ -33,15 +36,16 @@ class LikeController extends Controller
     }
 
     //いいねを表示するページ//
-    public function detail(Product $product)
+    public function detail($item_id)
     {
+        $product = Product::findOrFail($item_id);
         $user = Auth::user();
         $like = Like::where('product_id', $product->id)->where('user_id', $user->id)->first();
         return view('merchandise.item',compact('product','like','user'));
     }
 
     //コメント投稿処理//
-    public function comment(Request $request, $item_id)
+    public function comment(CommentRequest $request, $item_id)
     {
         $comment = new Comment();
         $comment->comment = $request->comment;

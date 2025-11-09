@@ -7,7 +7,7 @@
 
 @section('content')
 <div class="detail-content">
-    <form action="/item/{item_id}" method="post" class="form-content">
+    <form action="/item/{{ $product->id }}" method="post" class="form-content">
         @csrf
         <div class="left-content">
             <img src="{{ asset($product->image) }}" class="img-content" width="600" />
@@ -18,14 +18,25 @@
                 <h4>{{ $product->brand }}</h4>
                 <h2>{{ $product->price }}</h2>
             </div>
-            <a href="javascript:void(0);" class="like-link" data-post-id="{{ $product->id }}">
-                <span class="star {{ isset($like) && $like ? 'text-red-400' : 'text-white-400' }}">
-                    ☆
-                </span>
-                <span class="like-count">{{ $product->likes->count() ?: '' }}
-                </span>
-            </a>
-            <form class="form" action="/purchase/{item_id}" method="post">
+            @if(isset($like) && $like)
+            <form action="/item/{{ $product->id }}" method="post" style="display:inline;">
+                @csrf
+                @method('DELETE')
+                <a href="javascript:void(0);" class="like-link" onclick="this.closest('form').submit();">
+                    <span class="star text-black-400">★</span><br>
+                    <span class="link-count">{{ $product->likes->count() ?: '' }}</span>
+                </a>
+            </form>
+            @else
+            <form action="/item?{{ $product->id }}" method="post" style="display:inline;">
+                @csrf
+                <a href="javascript:void(0);" class="like-link" onclick="this.closest('form'.submit();">
+                    <span class="star text-white-400">☆</span><br>
+                    <span class="like-count">{{ $product->likes->count() ? $product->likes->count : '' }}</span>
+                </a>
+            </form>
+            @endif
+            <form class="form" action="/purchase/{{ $product->id }}" method="post">
                 @csrf
                 <div class="form-button">
                     <button class="form__button-submit" type="submit">購入手続きへ</button>
@@ -75,7 +86,8 @@
                     </div>
                 </form>
                 <div class="comment__button">
-                    <form method="post" action="">
+                    <form action="/item/{{ $product->id }}/comment" method="post" class="form__comment">
+                        @csrf
                         <button class="comment__button-submit" type="submit">コメントを送信する</button>
                     </form>
                 </div>

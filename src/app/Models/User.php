@@ -46,7 +46,7 @@ class User extends Authenticatable
 
     public function likes()
     {
-        return $this->belongsToMany(User::class, 'likes', 'user_id', 'product_id');
+        return $this->belongsToMany(Product::class, 'likes', 'user_id', 'product_id');
     }
 
     public function comments(): HasMany
