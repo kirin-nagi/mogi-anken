@@ -27,7 +27,6 @@ Route::get('/login', [UserController::class, 'showlogin'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/', [ItemController::class, 'index'])->name('index');
 Route::get('/item/{item_id}',[ProductController::class, 'showdetail'])->name('item.show');/*商品詳細画面*/
-
 Route::get('/?tab=mylist',[ItemController::class, 'mylist']);/*<-ここのクリエも変更*/
 Route::get('/',[ProductController::class, 'search'])->name('search');/*検索*/
 
@@ -38,7 +37,7 @@ Route::middleware('auth')->group(function (){
     Route::get('/sell',[ProductController::class, 'showsell']);
     Route::get('/mypage',[ProductController::class, 'sell'])->name('mypage.sell');
     Route::post('/mypage',[ProductController::class, 'create'])->name('mypage.create');
-    Route::post('/item/{item_id}/comment',[LikeController::class, 'comment']);
+    Route::post('/item/{item_id}/comment',[LikeController::class, 'comment'])->name('comment');
     Route::post('/item/{item_id}',[LikeController::class, 'like'])->name('like');
     Route::delete('/item/{item_id}',[LikeController::class, 'unlike'])->name('unlike');
 });

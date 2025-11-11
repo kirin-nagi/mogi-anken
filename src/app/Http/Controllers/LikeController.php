@@ -16,10 +16,14 @@ class LikeController extends Controller
 
         $user = Auth::user();
 
-        $like = New Like();
-        $like->product_id = $item_id;
-        $like->user_id = $user->id;
-        $like->save();
+        $existing = Like::where('product_id', $item_id)->where('user_id', $user->id)->first();
+
+        if(!$existing){
+            $like = New Like();
+            $like->product_id = $item_id;
+            $like->user_id = $user->id;
+            $like->save();
+        }
 
         return back();
     }
@@ -27,11 +31,13 @@ class LikeController extends Controller
     //いいねを削除する//
     public function unlike($item_id){
         $user = Auth::user();
-        $like = Like::where('product_id', $product->id)->where('user_id', $user->id)->first();
+        $like = Like::where('product_id', $item_id)->where('user_id', $user->id)->first();
 
         if($like){
             $like->delete();
         }
+
+        return back();
 
     }
 
