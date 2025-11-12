@@ -17,21 +17,21 @@
             <h2>{{ $product->price }}</h2>
         </div>
         @if(isset($like) && $like)
-        <form action="/item/{{ $product->id }}" method="post" style="display:inline;">
+        <form action="{{ route('unlike', ['item_id' => $product->id]) }}" method="post" style="display:inline;">
             @csrf
             @method('DELETE')
-            <a href="javascript:void(0);" class="like-link" onclick="this.closest('form').submit();">
-                <span class="star text-black-400">★</span><br>
-                <span class="link-count">{{ $product->likes->count() ?: '' }}</span>
-            </a>
+            <button type="submit" class="like-link">
+                <span class="star text-black-400">♥</span><br>
+                <span class="like-count">{{ $product->likes->count() ?: '' }}</span>
+            </button>
         </form>
         @else
-        <form action="/item/{{ $product->id }}" method="post" style="display:inline;">
+        <form action="{{ route('like', ['item_id' => $product->id]) }}"  method="post" style="display:inline;">
             @csrf
-            <a href="javascript:void(0);" class="like-link" onclick="this.closest('form'.submit();">
-                <span class="star text-white-400">☆</span><br>
-                <span class="like-count">{{ $product->likes->count() ? $product->likes->count : '' }}</span>
-            </a>
+            <button type="submit" class="like-link">
+                <span class="star text-white-400">♡</span><br>
+                <span class="like-count">{{ $product->likes->count() ?: '' }}</span>
+            </button>
         </form>
         @endif
         <form class="form" action="/purchase/{{ $product->id }}" method="post">
@@ -60,25 +60,26 @@
             @php
             $commentsCount = $product->comments->count();
             @endphp
-            @forelse($product->comments as $comment)
-            <div class="comment__group-show" style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
-                <div class="comment-count">
-                    {{ $commentsCount}}
-                </div>
-                @if(!empty($comment->user->profile_image))
-                <img src="{{ asset($comment->user->profile_image) }}"
-                style="width:35px; height:35px; border-radius:50%; object-fit:cover;">
-                @else
-                <div style="width: 50px; height: 50px; background-color: #9e9d9dff; border-radius: 50%; margin: 20px;"></div>
-                @endif
-                <div class="comment__body">
-                    <p class="comment__name">{{ $comment->user->name }}</p>
-                    <p class="comment__text">{{ $comment->comment }}</p>
-                </div>
+            <div class="comment-count">
+                <h3> コメント ( {{ $commentsCount}} ) </h3>
             </div>
-            @empty
-                <p>コメントはまだありません</p>
-            @endforelse
+            @forelse($product->comments as $comment)
+            <div class="comment__group-show">
+                <div class="comment__heading">
+                    @if(!empty($comment->user->address) && !empty($comment->user->address->image))
+                    <img src="{{ asset('storage/' . $comment->user->address->image) }}" class="comment__icon" style="width: 50px; height: 50px; border-radius: 50%; margin: 20px;">
+                    @else
+                    <div style="width: 50px; height: 50px; background-color: #9e9d9dff; border-radius: 50%; margin: 20px;"></div>
+                    @endif
+                    <div class="comment__body">
+                        <p class="comment__name">{{ $comment->user->name }}</p>
+                    </div>
+                </div>
+                <p class="comment__text">{{ $comment->comment }}</p>
+                @empty
+                    <p>コメントはまだありません</p>
+                @endforelse
+            </div>
         </div>
         <form action="/item/{{ $product->id }}/comment" method="POST">
             @csrf

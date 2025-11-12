@@ -53,4 +53,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Comment');
     }
+
+    public function address()
+    {
+        return $this->hasOne(Address::class);
+    }
 }

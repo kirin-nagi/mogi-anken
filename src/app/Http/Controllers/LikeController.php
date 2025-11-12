@@ -16,7 +16,7 @@ class LikeController extends Controller
 
         $user = Auth::user();
 
-        $existing = Like::where('product_id', $item_id)->where('user_id', $user->id)->first();
+        ($existing = Like::where('product_id', $item_id)->where('user_id', $user->id)->first());
 
         if(!$existing){
             $like = New Like();
@@ -30,12 +30,9 @@ class LikeController extends Controller
 
     //いいねを削除する//
     public function unlike($item_id){
-        $user = Auth::user();
-        $like = Like::where('product_id', $item_id)->where('user_id', $user->id)->first();
+        dd(Like::where('product_id', 1)->where('user_id', Auth::id())->get());
 
-        if($like){
-            $like->delete();
-        }
+        Like::where('product_id', $item_id)->where('user_id', Auth::id())->delete();
 
         return back();
 
@@ -44,9 +41,10 @@ class LikeController extends Controller
     //いいねを表示するページ//
     public function detail($item_id)
     {
-        $product = Product::findOrFail($item_id);
+        $product = Product::with('likes')->findOrFail($item_id);
         $user = Auth::user();
         $like = Like::where('product_id', $product->id)->where('user_id', $user->id)->first();
+
         return view('merchandise.item',compact('product','like','user'));
     }
 
