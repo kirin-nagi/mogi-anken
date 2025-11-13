@@ -22,6 +22,11 @@
     width: 690px;
 }
 
+.condition-item{
+    display: flex;
+    align-items: center;
+}
+
 .condition-group{
     display: flex;
     justify-content: space-between;
@@ -69,6 +74,11 @@
 
 }
 
+.comment__heading{
+    display: flex;
+    align-items: center;
+}
+
 .comment__name {
     margin: 0;
     font-weight: bold;
@@ -77,4 +87,8 @@
 .comment__text {
     margin: 0;
     word-break: break-word;
+    border: 1px solid gray;
+    padding: 1em 1.5em;
+    width: 300px;
+    background-color: #f5f1f1;
 }

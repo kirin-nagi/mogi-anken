@@ -30,7 +30,6 @@ class LikeController extends Controller
 
     //いいねを削除する//
     public function unlike($item_id){
-        dd(Like::where('product_id', 1)->where('user_id', Auth::id())->get());
 
         Like::where('product_id', $item_id)->where('user_id', Auth::id())->delete();
 

@@ -42,8 +42,10 @@
         </form>
         <div class="detail__subtitle">
             <h2>商品説明</h2>
+            <div class="condition-item">
             {{ $product->condition }}
             {{ $product->description }}
+            </div>
         </div>
         <div class="detail__subtitle">
             <h2>商品の情報</h2>
