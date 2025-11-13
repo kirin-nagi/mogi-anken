@@ -23,6 +23,7 @@
 
 .header-nav {
     display: flex;
+    justify-content: space-around;
     margin-right: -100px;
 }
 
@@ -30,6 +31,8 @@
     display: flex;
     margin-right: 100px;
 }
+
+
 
 .header-nav__link{
     color: #ddd;

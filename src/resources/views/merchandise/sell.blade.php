@@ -163,22 +163,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     }
-
-    const priceInput = document.getElementById('priceInput');
-    const pricePreview = document.getElementById('pricePreview');
-
-    if (priceInput && pricePreview) {
-        priceInput.addEventListener('input', function () {
-            let value = priceInput.value.replace(/[^\d]/g, '');
-
-            if (value === '') {
-            pricePreview.textContent = '￥0（税込）';
-            return;
-        }
-        const formatted = Number(value).toLocaleString();
-        pricePreview.textContent = `￥${formatted}（税込）`;
-    });
-    }
 });
 </script>
 @endsection

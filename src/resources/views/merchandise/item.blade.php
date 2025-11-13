@@ -8,13 +8,13 @@
 @section('content')
 <div class="detail-content">
     <div class="left-content">
-        <img src="{{ asset($product->image) }}" class="img-content" width="600" />
+        <img src="{{ asset($product->image) }}" class="img-content" width="500" />
     </div>
     <div class="right-content">
         <div class="product-item">
             <h1>{{ $product->name }}</h1>
             <h4>{{ $product->brand }}</h4>
-            <h2>{{ $product->price }}</h2>
+            <p class="product-price">￥{{ $product->price }}(税込)</P>
         </div>
         @if(isset($like) && $like)
         <form action="{{ route('unlike', ['item_id' => $product->id]) }}" method="post" style="display:inline;">
@@ -42,20 +42,22 @@
         </form>
         <div class="detail__subtitle">
             <h2>商品説明</h2>
-            <div class="condition-item">
-            {{ $product->condition }}
-            {{ $product->description }}
+            <div class="description-item">
+            <p class="product-condition">{{ $product->condition }}</p>
+            <p class="product-description">{{ $product->description }}</P>
             </div>
         </div>
         <div class="detail__subtitle">
             <h2>商品の情報</h2>
+            <div class="category-group">
             <h4>カテゴリー</h4>
             @foreach($product->categories as $category)
-                {{ $category->category_name }}
+                <p class="category-name">{{ $category->category_name }}</p>
             @endforeach
+            </div>
             <div class="condition-group">
                 <h4>商品の状態</h4>
-                {{ $product->condition }}
+                <p class="condition-item">{{ $product->condition }}</p>
             </div>
         </div>
         <div class="comment__group">
