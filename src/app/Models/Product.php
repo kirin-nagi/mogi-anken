@@ -39,4 +39,10 @@ class Product extends Model
     {
         return $this->hasMany(Sell::class);
     }
+
+    public function address()
+    {
+        return $this->belongsTo(Address::class);
+    }
+
 }

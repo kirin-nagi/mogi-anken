@@ -34,8 +34,7 @@
             </button>
         </form>
         @endif
-        <form class="form" action="/purchase/{{ $product->id }}" method="post">
-            @csrf
+        <form class="form" action="{{ route('merchandise.purchase', ['item_id'=> $product->id]) }}" method="get">
             <div class="form-button">
                 <button class="form__button-submit" type="submit">購入手続きへ</button>
             </div>

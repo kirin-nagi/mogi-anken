@@ -27,7 +27,7 @@
             <div class="address-subtitle">
                 <!-- 何かclassを入れてsubtitleを消す -->
                 <h3>配送先</h3>
-                <h3>変更する</h3>
+                <a class="purchase-address__link" href="/purchase/address/{item_id}">変更する</a>
                 <div class="address-item">
                     <p class="address-postcode">{{ $address->postcode }}</p>
                     <p class="address-address">{{ $address->address }}</p>
@@ -35,4 +35,8 @@
             </div>
         </div>
     </div>
+    <div class="right-content">
+
+    </div>
 </div>
+@endsection
