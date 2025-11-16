@@ -26,9 +26,9 @@
                     <ul class="header-nav">
                         <li class="header-nav__item">
                             @auth
-                            <form action="/logout" class="header-nav__link" method="post">
-                            @csrf
-                                <button class="header-nav__link--logout" type="submit">ログアウト</button>
+                            <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="header-nav__link">ログアウト</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="post" style="display: none;">
+                                @csrf
                             </form>
                             <a class="header-nav__link" href="/mypage">マイページ</a>
                             @else

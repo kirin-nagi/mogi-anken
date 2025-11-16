@@ -54,7 +54,7 @@ class UserController extends Controller
     {
 
         $user_info = $request->validated();
-        
+
         if(Auth::attempt($user_info)) {
             $request->session()->regenerate();
             return redirect('/');
@@ -79,5 +79,3 @@ class UserController extends Controller
 
 
 /*会員登録・ログイン*/
-
-/* ログイン処理が出来ずに止まってる */
