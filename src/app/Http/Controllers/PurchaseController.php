@@ -12,10 +12,13 @@ class PurchaseController extends Controller
 {
     public function showpurchase($item_id)
     {
+
         $product = Product::findOrFail($item_id);
 
-        $address = Address::findOrFail($item_id);
+        $user = Auth::user();
 
-        return view('merchandise.purchase', compact('product', 'address'));
+        $address = Address::where('user_id', $user->id)->first();
+
+        return view('merchandise.purchase', compact('product','address'));
     }
 }

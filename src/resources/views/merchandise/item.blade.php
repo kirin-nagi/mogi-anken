@@ -34,11 +34,9 @@
             </button>
         </form>
         @endif
-        <form class="form" action="{{ route('merchandise.purchase', ['item_id'=> $product->id]) }}" method="get">
-            <div class="form-button">
-                <button class="form__button-submit" type="submit">購入手続きへ</button>
-            </div>
-        </form>
+        <div class="form-button">
+            <a class="form__button-submit" href="{{ route('merchandise.purchase', ['item_id'=> $product->id]) }}">購入手続きへ</a>
+        </div>
         <div class="detail__subtitle">
             <h2>商品説明</h2>
             <div class="description-item">
