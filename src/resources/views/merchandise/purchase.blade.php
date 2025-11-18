@@ -11,7 +11,7 @@
         <div class="product-item">
         <img src="{{ asset($product->image) }}" class="img-content" width="200" />
             <p class="product-name">{{ $product->name }}</p>
-            <p class="product-price">{{ $product->price }}</p>
+            <p class="product-price">￥{{ $product->price }}</p>
         </div>
         <div class="payment-content">
             <h3>支払い方法</h3>
@@ -28,7 +28,7 @@
                 <h3>配送先</h3>
                 <a class="purchase-address__link" href="/purchase/address/{item_id}"name="address-link">変更する</a>
                 <div class="address-item">
-                    <p class="address-postcode">{{ $address->postcode }}</p>
+                    <p class="address-postcode">〒{{ $address->postcode }}</p>
                     <p class="address-address">{{ $address->address }}</p>
                 </div>
             </div>
@@ -37,7 +37,7 @@
     <div class="right-content">
         <div class="product-price__item">
             <p class="price-name">商品代金</p>
-            <p class="product-price">{{ $product->price }}</p>
+            <p class="product-price">￥{{ $product->price }}</p>
         </div>
         <div class="payment-method__item">
             <p class="payment-name">支払い方法</p>
@@ -45,7 +45,7 @@
         </div>
     </div>
     <form action="" method="get">
-        <button class="stripe__button-submit" type="submit">購入する</button>
+        <button class="form__button-submit" type="submit">購入する</button>
     </form>
 </div>
 @endsection
