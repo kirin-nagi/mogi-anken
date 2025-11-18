@@ -26,7 +26,7 @@
         <div class="address-content">
             <div class="address-subtitle">
                 <h3>配送先</h3>
-                <a class="purchase-address__link" href="/purchase/address/{item_id}">変更する</a>
+                <a class="purchase-address__link" href="/purchase/address/{item_id}"name="address-link">変更する</a>
                 <div class="address-item">
                     <p class="address-postcode">{{ $address->postcode }}</p>
                     <p class="address-address">{{ $address->address }}</p>
@@ -44,5 +44,8 @@
             <p>？？？？？</p>
         </div>
     </div>
+    <form action="" method="get">
+        <button class="stripe__button-submit" type="submit">購入する</button>
+    </form>
 </div>
 @endsection

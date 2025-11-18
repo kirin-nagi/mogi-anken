@@ -1,1 +1,42 @@
 /*商品購入*/
+.purchase-content{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 20px;
+}
+
+.left-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 800px;
+}
+
+.right-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 500px;
+}
+
+.address-link{
+    text-decoration: none;
+}
+
+.form__button {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.stripe__button-submit {
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    width: 600px;
+    background: #f74343;
+    color: #fff;
+    font-weight: bold;
+
+}
