@@ -18,7 +18,7 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <input type="postcode" name="postcode" />
+                    <input type="text" name="postcode" value="{{ old('postcode', $postcode->postcode ?? '') }}"/>
                 </div>
                 <div class="form__error">
                     @error('postcode')
@@ -33,7 +33,7 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <input type="address" name="address" />
+                    <input type="text" name="address" value="{{ old('address', $address->address ?? '') }}"/>
                 </div>
                 <div class="form__error">
                     @error('address')
@@ -48,7 +48,7 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <input type="building" name="building" />
+                    <input type="text" name="building" value="{{ old('building', $building->building ?? '') }}"/>
                 </div>
                 <div class="form__error">
                     @error('building')

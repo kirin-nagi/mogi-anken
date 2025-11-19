@@ -14,13 +14,6 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;'); 
-        DB::table('categories')->truncate(); 
-        DB::table('products')->truncate(); 
-        DB::statement('ALTER TABLE products AUTO_INCREMENT = 1;'); 
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
-        
-        
         $products = [
             [
             'name' => '腕時計',
@@ -118,7 +111,7 @@ class ProductsTableSeeder extends Seeder
             'price' => 2500.0,
             'brand' => '',
             'description' => '便利なメイクアップセット',
-            'image' => '/storage/image/ppBwyJuk19fKC6CqeuyVcOOqQj27rMfrf7P6ej1A.jpg',
+            'image' => '/storage/image/LIfGSzZVh6XQiVo969Fhc26KUqqTo4qdwMlh5KkM.jpg',
             'condition' => '目立った傷や汚れなし',
             'user_id' => 2,
         ],

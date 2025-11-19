@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function (){
     Route::post('/item/{item_id}',[LikeController::class, 'like'])->name('like');
     Route::delete('/item/{item_id}',[LikeController::class, 'unlike'])->name('unlike');
     Route::get('/purchase/{item_id}', [PurchaseController::class, 'showpurchase'])->name('merchandise.purchase');
-    Route::post('/purchase/{item_id}',[purchaseController::class, 'updateaddress'])->name('purchase');
+    Route::post('/purchase/{item_id}',[UserController::class, 'updateaddress'])->name('purchase');
 });
 
 
@@ -52,4 +52,4 @@ Route::get('/mypage/profile', [ProfileController::class, 'editprofile']);
 Route::get('/mypage', [ProfileController::class, 'showprofile']);
 
 /*送付先住所変更画面確認用*/
-Route::get('/purchase/address/{item_id}', [PurchaseController::class, 'showaddress']);
+Route::get('/purchase/address/{item_id}', [UserController::class, 'showaddress']);

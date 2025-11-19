@@ -7,8 +7,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\ItemRequest;
 use App\Models\User;
+use App\Models\Address;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\AddressRequest;
 
 class UserController extends Controller
 {
@@ -66,6 +68,25 @@ class UserController extends Controller
     public function logout()
     {
         return view('auth.login');
+    }
+
+    public function showaddress(){
+
+        return view('user.address');
+    }
+
+    public function updateaddress(AddressRequest $request)
+    {
+        $user = Auth::user();
+
+        $address = Address::where('user_id', $user->id)->first();
+        $address->update([
+            'postcode'=> $request->postcode,
+            'address' => $request->address,
+            'building' => $request->building ?? null,
+        ]);
+
+        return redirect()->route('purchase', ['item_id' => $address]);
     }
 
 }
