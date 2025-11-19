@@ -47,6 +47,12 @@
     background-color: rgb(226, 223, 223);
 }
 
+.like-comment__item{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
 .form-button{
     margin-top: auto;
 }

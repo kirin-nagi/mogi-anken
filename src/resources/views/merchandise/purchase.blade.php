@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css.purchase.css') }}">
+<link rel="stylesheet" href="{{ asset('css/purchase.css') }}">
 @endsection
 
 @section('content')
@@ -26,7 +26,7 @@
         <div class="address-content">
             <div class="address-subtitle">
                 <h3>配送先</h3>
-                <a class="purchase-address__link" href="/purchase/address/{item_id}"name="address-link">変更する</a>
+                <a class="purchase-address__link" href="/purchase/address/{item_id}">変更する</a>
                 <div class="address-item">
                     <p class="address-postcode">〒{{ $address->postcode }}</p>
                     <p class="address-address">{{ $address->address }}</p>
@@ -43,9 +43,9 @@
             <p class="payment-name">支払い方法</p>
             <p>？？？？？</p>
         </div>
+        <form action="" method="get">
+            <button class="form__button-submit" type="submit">購入する</button>
+        </form>
     </div>
-    <form action="" method="get">
-        <button class="form__button-submit" type="submit">購入する</button>
-    </form>
 </div>
 @endsection

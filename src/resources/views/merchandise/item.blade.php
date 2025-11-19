@@ -16,24 +16,33 @@
             <h4>{{ $product->brand }}</h4>
             <p class="product-price">￥{{ $product->price }}(税込)</P>
         </div>
-        @if(isset($like) && $like)
-        <form action="{{ route('unlike', ['item_id' => $product->id]) }}" method="post" style="display:inline;">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="like-link">
-                <span class="star text-black-400">♥</span><br>
-                <span class="like-count">{{ $product->likes->count() ?: '' }}</span>
-            </button>
-        </form>
-        @else
-        <form action="{{ route('like', ['item_id' => $product->id]) }}"  method="post" style="display:inline;">
-            @csrf
-            <button type="submit" class="like-link">
-                <span class="star text-white-400">♡</span><br>
-                <span class="like-count">{{ $product->likes->count() ?: '' }}</span>
-            </button>
-        </form>
-        @endif
+        <div class="like-comment__item">
+            @if(isset($like) && $like)
+            <form action="{{ route('unlike', ['item_id' => $product->id]) }}" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="like-link">
+                    <span class="heart text-red-400">♥</span><br>
+                    <span class="like-count">{{ $product->likes->count() ?: '' }}</span>
+                </button>
+            </form>
+            @else
+            <form action="{{ route('like', ['item_id' => $product->id]) }}"  method="post">
+                @csrf
+                <button type="submit" class="like-link">
+                    <span class="heart text-white-400">♡</span><br>
+                    <span class="like-count">{{ $product->likes->count() ?: '' }}</span>
+                </button>
+            </form>
+            @endif
+            <div class="comment-count__item">
+                @php
+                    $commentsCount = $product->comments->count();
+                @endphp
+                <span class="comment text-white-400">💭</span><br>
+                <span class="comment-count">{{ $commentsCount }}</span>
+            </div>
+        </div>
         <div class="form-button">
             <a class="form__button-submit" href="{{ route('merchandise.purchase', ['item_id'=> $product->id]) }}">購入手続きへ</a>
         </div>
@@ -62,7 +71,7 @@
             $commentsCount = $product->comments->count();
             @endphp
             <div class="comment-count">
-                <h3> コメント ( {{ $commentsCount}} ) </h3>
+                <h3> コメント ( {{ $commentsCount }} ) </h3>
             </div>
             @forelse($product->comments as $comment)
             <div class="comment__group-show">
