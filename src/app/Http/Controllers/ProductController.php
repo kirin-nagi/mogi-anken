@@ -62,12 +62,7 @@ class ProductController extends Controller
         return redirect('/mypage');
     }
 
-    public function sell() {
-    $products = Product::where('user_id', Auth::id())->get();
-
-    return view('page.sell',compact('products'));
-    }
-
+    // 検索機能
     public function search(Request $request)
     {
         $keyword = $request->input('keyword');

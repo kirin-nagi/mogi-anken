@@ -24,7 +24,19 @@ class PurchaseRequest extends FormRequest
     public function rules()
     {
         return [
-            
+            'postcode' => ['required','regex:/^\d{3}-\d{4}$/'],
+            'address' => ['required'],
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'postcode.required' =>'郵便番号を入力してください。',
+            'postcode.regex' =>'郵便番号は「123-4567」の形式で入力してください。',
+            'address.required' => '住所を入力してください。',
+
+        ];
+    }
+
 }

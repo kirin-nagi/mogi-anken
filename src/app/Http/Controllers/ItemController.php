@@ -11,23 +11,24 @@ use App\Models\Sell;
 
 class ItemController extends Controller
 {
-    // 商品一覧のログイン判定ありなし設定　//
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all();
-
-        if(Auth::check()){
-
-            $mylist = Auth::user()->likes;
+        $user = Auth::user();
+            if($user && $request->tab === 'mylist'){
+                $products = $user->likes()->get();
+            }else if($user){
+                $products = Product::where('user_id', '!=', $user->id)->get();
         }else{
-            $mylist = collect();
+            $products = Product::all();
         }
-        return view('index', compact('products', 'mylist'));
-
-        /*indexのおすすめに表示*/
-        $products = Product::all();
 
         return view('index', compact('products'));
+    }
+
+    public function sell()
+    {
+        $products = Product::where('user_id', Auth::id())->get();
+        return view('page.sell', compact('products'));
     }
 
 }
