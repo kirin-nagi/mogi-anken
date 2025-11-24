@@ -36,4 +36,4 @@ class ItemController extends Controller
 
 
 
-/*商品一覧・商品購入*/
+/*商品一覧・商品購入・*/
