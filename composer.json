@@ -1,0 +1,10 @@
+{
+    "require": {
+        "laravel/cashier": "^7.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
+    }
+}
