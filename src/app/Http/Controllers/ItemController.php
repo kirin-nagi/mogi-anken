@@ -14,16 +14,26 @@ class ItemController extends Controller
     public function index(Request $request)
     {
         $user = Auth::user();
-            if($user && $request->tab === 'mylist'){
-                $products = $user->likes()->get();
-            }else if($user){
-                $products = Product::where('user_id', '!=', $user->id)->get();
+        if($user){
+            $products = Product::where('user_id', '!=', $user->id)->get();
         }else{
             $products = Product::all();
         }
 
         return view('index', compact('products'));
     }
+
+    public function mylist(Request $request)
+    {
+        $user = Auth::user();
+        if($user){
+            $products = $user->likes()->get();
+        }else{
+            $products = collect();
+        }
+
+        return view('page.mylist', compact('products'));
+        }
 
     public function sell()
     {

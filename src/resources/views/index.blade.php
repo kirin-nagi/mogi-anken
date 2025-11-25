@@ -10,8 +10,8 @@
     <div class="category-group__inner">
         <div class="category-group__row">
             <div class="category-group__header">
-                <a class="category-group__link {{ request('tab') !== 'mylist' ? 'active' : '' }}" href="/">おすすめ</a>
-                <a class="category-group__link {{ request('tab') === 'mylist' ? 'active' : '' }}" href="/?tab=mylist">マイリスト</a>
+                <a class="category-group__link active" href="{{ route('index') }}">おすすめ</a>
+                <a class="category-group__link" href="/?tab=mylist">マイリスト</a>
             </div>
         </div>
     </div>

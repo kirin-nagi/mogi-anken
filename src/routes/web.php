@@ -28,12 +28,12 @@ Route::get('/login', [UserController::class, 'showlogin'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/', [ItemController::class, 'index'])->name('index');
 Route::get('/item/{item_id}',[ProductController::class, 'showdetail'])->name('item.show');/*商品詳細画面*/
-// Route::get('/?tab=mylist',[ItemController::class, 'mylist']);/*<-ここのクリエも変更*/
-Route::get('/',[ProductController::class, 'search'])->name('search');/*検索*/
+Route::get('mylist',[ItemController::class, 'mylist'])->name('mylist');/*<-ここのクリエも変更*/
+Route::get('/search',[ProductController::class, 'search'])->name('search');/*検索*/
 
 
 Route::middleware('auth')->group(function (){
-    Route::post('/',[ProfileController::class, 'updateprofile']);
+    Route::post('/profile/update',[ProfileController::class, 'updateprofile']);
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     Route::get('/sell',[ProductController::class, 'showsell']);
     Route::get('/mypage',[ProductController::class, 'sell'])->name('mypage.sell');

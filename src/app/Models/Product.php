@@ -21,13 +21,13 @@ class Product extends Model
     ];
 
     public function likedByUsers()
-{
-    return $this->belongsToMany(User::class, 'likes', 'product_id', 'user_id');
-}
+    {
+        return $this->belongsToMany(User::class, 'likes', 'product_id', 'user_id');
+    }
 
     public function likes()
     {
-        return $this->belongsToMany(User::class, 'likes', 'product_id', 'user_id');
+        return $this->belongsToMany(Product::class, 'likes', 'product_id', 'user_id');
     }
 
     public function comments(): HasMany
