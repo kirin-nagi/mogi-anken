@@ -12,7 +12,7 @@ use App\Models\Sell;
 
 class ProductController extends Controller
 {
-    // 商品詳細画面を表示させる //
+    // 商品詳細画面を表示させる //ここでいいねを取得しているかを確認する必要あり
     public function showdetail($item_id){
 
         $product = Product::findOrFail($item_id);
@@ -20,6 +20,7 @@ class ProductController extends Controller
         $categories = Sell::all();
 
         return view('merchandise.item', compact('product','categories'));
+        // ↑いいねの設定ができたらcompactの中にlikeを入れる
     }
 
     // 出品画面表示 //
