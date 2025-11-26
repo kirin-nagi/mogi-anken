@@ -18,7 +18,7 @@
                     <img src='/storage/img/logo.svg' width="250">
                 </a>
                 <div class="form-group">
-                    <form action="/" method="GET" class="input-group search-box">
+                    <form action="/search" method="GET" class="input-group search-box">
                         <input type="text" name="keyword" class="form-control" placeholder="なにをお探しですか？" value="{{ request()->input('keyword') }}" >
                     </form>
                 </div>

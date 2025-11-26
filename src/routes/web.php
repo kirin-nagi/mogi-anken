@@ -39,8 +39,8 @@ Route::middleware('auth')->group(function (){
     Route::get('/mypage',[ProductController::class, 'sell'])->name('mypage.sell');
     Route::post('/mypage',[ProductController::class, 'create'])->name('mypage.create');
     Route::post('/item/{item_id}/comment',[LikeController::class, 'comment'])->name('comment');
-    Route::post('/item/{item_id}',[LikeController::class, 'like'])->name('like');
-    Route::delete('/item/{item_id}',[LikeController::class, 'unlike'])->name('unlike');
+    Route::post('/item/{item_id}/like',[LikeController::class, 'like'])->name('like');
+    Route::delete('/item/{item_id}/like',[LikeController::class, 'unlike'])->name('unlike');
     Route::get('/purchase/{item_id}', [PurchaseController::class, 'showpurchase'])->name('merchandise.purchase');
     Route::post('/purchase/{item_id}',[UserController::class, 'updateaddress'])->name('purchase');
 });
