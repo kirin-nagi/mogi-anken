@@ -20,7 +20,6 @@
             @if($product->likes->where('user_id',Auth::id())->count())
             <form action="{{ route('unlike', ['item_id' => $product->id]) }}" method="post">
                 @csrf
-                @method('DELETE')
                 <button type="submit" class="like-link">
                     <span class="heart text-red-400">♥</span><br>
                     <span class="like-count">{{ $product->likes->count() ?: '' }}</span>

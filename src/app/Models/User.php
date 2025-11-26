@@ -58,4 +58,10 @@ class User extends Authenticatable
     {
         return $this->hasOne(Address::class);
     }
+
+    public function getLikedProducts($user_id)
+    {
+        $user = User::find($user_id);
+        return $user->likes;
+    }
 }

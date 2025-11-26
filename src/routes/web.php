@@ -28,7 +28,6 @@ Route::get('/login', [UserController::class, 'showlogin'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/', [ItemController::class, 'index'])->name('index');
 Route::get('/item/{item_id}',[ProductController::class, 'showdetail'])->name('item.show');/*商品詳細画面*/
-Route::get('mylist',[ItemController::class, 'mylist'])->name('mylist');/*<-ここのクリエも変更*/
 Route::get('/search',[ProductController::class, 'search'])->name('search');/*検索*/
 
 
@@ -40,7 +39,7 @@ Route::middleware('auth')->group(function (){
     Route::post('/mypage',[ProductController::class, 'create'])->name('mypage.create');
     Route::post('/item/{item_id}/comment',[LikeController::class, 'comment'])->name('comment');
     Route::post('/item/{item_id}/like',[LikeController::class, 'like'])->name('like');
-    Route::delete('/item/{item_id}/like',[LikeController::class, 'unlike'])->name('unlike');
+    Route::post('/item/{item_id}/unlike',[LikeController::class, 'unlike'])->name('unlike');
     Route::get('/purchase/{item_id}', [PurchaseController::class, 'showpurchase'])->name('merchandise.purchase');
     Route::post('/purchase/{item_id}',[UserController::class, 'updateaddress'])->name('purchase');
 });
