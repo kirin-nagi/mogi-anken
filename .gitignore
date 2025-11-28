@@ -1870,3 +1870,5 @@ vendor/symfony/translation/Writer/TranslationWriterInterface.php
 /vendor
 docker/mysql/data/binlog.000066
 docker/mysql/data/binlog.000067
+docker/mysql/data/binlog.000068
+docker/mysql/data/binlog.000069
