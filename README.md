@@ -22,12 +22,12 @@
 
 
 ４， .envファイルの一部を以下のように編集
-DB_CONNECTION=mysql
-DB_HOST=mysql
-DB_PORT=3306
-DB_DATABASE=laravel_db
-DB_USERNAME=laravel_user
-DB_PASSWORD=laravel_pass
+DB_CONNECTION=mysql<br>
+DB_HOST=mysql<br>
+DB_PORT=3306<br>
+DB_DATABASE=laravel_db<br>
+DB_USERNAME=laravel_user<br>
+DB_PASSWORD=laravel_pass<br>
 
 
 ５．php artisan key:generate
