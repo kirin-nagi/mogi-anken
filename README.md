@@ -93,4 +93,9 @@ DB_PASSWORD=laravel_pass<br>
 <br>
 
 ・phpMyAdmin:  http://localhost:8080/
+<br>
 
+
+<h2>ER図</h2>
+
+<img width="1170" height="828" alt="模擬案件　フリマ　ER図" src="https://github.com/user-attachments/assets/e6b28a5a-7398-4182-b231-ee13668d9a57" />
