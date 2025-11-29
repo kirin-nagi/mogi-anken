@@ -42,3 +42,7 @@ DB_PASSWORD=laravel_pass<br>
 ７，php artisan db:seed
 
 
+<h3>github環境構築</h3>
+<br>
+
+１，git clone git@github.com:
