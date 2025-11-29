@@ -21,7 +21,7 @@
 ３, cp .env.example .env
 
 
-４， .envファイルの一部を以下のように編集
+４， .envファイルの一部を以下のように編集<br>
 DB_CONNECTION=mysql<br>
 DB_HOST=mysql<br>
 DB_PORT=3306<br>
