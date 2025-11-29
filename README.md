@@ -75,7 +75,7 @@ DB_PASSWORD=laravel_pass<br>
 <br>
 
 
-点h1>模擬案件　フリマアプリ</h1>
+<h1>模擬案件　フリマアプリ</h1>
 
 <br>
 <h2>環境構築</h2>
