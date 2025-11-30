@@ -1,4 +1,3 @@
-<!-- プロフィール画面 -->
 @extends('layouts.app')
 
 @section('css')

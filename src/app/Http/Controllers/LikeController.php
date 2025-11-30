@@ -11,7 +11,6 @@ use App\Models\Comment;
 
 class LikeController extends Controller
 {
-    //いいねをつける//
     public function like($item_id){
 
         $user = Auth::user();
@@ -28,7 +27,6 @@ class LikeController extends Controller
         return back();
     }
 
-    //いいねを削除する//
     public function unlike($item_id)
 {
 
@@ -45,7 +43,6 @@ class LikeController extends Controller
     return back();
 }
 
-    //いいねを表示するページ//
     public function detail($item_id)
     {
         $product = Product::with('likes')->findOrFail($item_id);
@@ -55,7 +52,6 @@ class LikeController extends Controller
         return view('merchandise.item',compact('product','like','user'));
     }
 
-    //コメント投稿処理//
     public function comment(CommentRequest $request, $item_id)
     {
         $comment = new Comment();

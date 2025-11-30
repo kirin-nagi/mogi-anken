@@ -27,8 +27,10 @@ Route::post('/mypage/profile', [ProfileController::class, 'updateprofile'])->nam
 Route::get('/login', [UserController::class, 'showlogin'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/', [ItemController::class, 'index'])->name('index');
-Route::get('/item/{item_id}',[ProductController::class, 'showdetail'])->name('item.show');/*商品詳細画面*/
-Route::get('/search',[ProductController::class, 'search'])->name('search');/*検索*/
+Route::get('/item/{item_id}',[ProductController::class, 'showdetail'])->name('item.show');
+Route::get('/search',[ProductController::class, 'search'])->name('search');
+Route::get('/mypage/profile', [ProfileController::class, 'editprofile']);
+Route::get('/mypage', [ProfileController::class, 'showprofile']);
 
 
 Route::middleware('auth')->group(function (){
@@ -46,9 +48,3 @@ Route::middleware('auth')->group(function (){
 });
 
 
-/*プロフィール設定画面・確認用*/
-Route::get('/mypage/profile', [ProfileController::class, 'editprofile']);
-/*プロフィール画面・確認用*/
-Route::get('/mypage', [ProfileController::class, 'showprofile']);
-
-/*送付先住所変更画面確認用*/

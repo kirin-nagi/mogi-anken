@@ -1,4 +1,3 @@
-<!-- 会員登録画面 -->
 @extends('layouts.login_register')
 
 @section('css')

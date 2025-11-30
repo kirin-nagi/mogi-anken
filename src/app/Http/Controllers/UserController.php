@@ -19,7 +19,7 @@ class UserController extends Controller
     {
         return view('auth.register');
     }
-    /* 会員登録画面 */
+
     public function store(RegisterRequest $request)
     {
         $user=User::create([
@@ -32,7 +32,7 @@ class UserController extends Controller
         Auth::login($user);
         return redirect('/mypage/profile');
     }
-    /*プロフィール設定画面*/
+
     public function update(ProfileRequest $request, $id)
     {
         $address = Address::findOrFail($id);
@@ -46,12 +46,11 @@ class UserController extends Controller
         return redirect()->route('index');
     }
 
-    /*ログイン画面表示*/
     public function showlogin()
     {
         return view('auth.login');
     }
-    /*ログイン画面 */
+
     public function login(LoginRequest $request)
     {
 
@@ -64,7 +63,7 @@ class UserController extends Controller
 
     return redirect()->route('login');
     }
-    /*ログアウト処理*/
+
     public function logout()
     {
         return view('auth.login');
@@ -90,7 +89,3 @@ class UserController extends Controller
     }
 
 }
-
-
-
-/*会員登録・ログイン*/

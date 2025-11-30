@@ -1,4 +1,3 @@
-<!-- 商品詳細画面 -->
 @extends('layouts.app')
 
 @section('css')
@@ -17,7 +16,6 @@
             <p class="product-price">￥{{ $product->price }}(税込)</P>
         </div>
         <div class="like-comment__item">
-            <!-- controllerでいいねが確認されたらいいね削除ボタンを表示・押されてなかったらいいねボタンを表示 -->
             @if($product->likes->where('user_id',Auth::id())->count())
             <form action="{{ route('unlike', ['item_id' => $product->id]) }}" method="post">
                 @csrf

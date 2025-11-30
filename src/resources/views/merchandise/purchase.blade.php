@@ -1,4 +1,3 @@
-<!-- 商品購入  ※request設定-->
 @extends('layouts.app')
 
 @section('css')

@@ -1,4 +1,3 @@
-<!-- 送付先住所変更画面 -->
 @extends('layouts.app')
 
 @section('css')

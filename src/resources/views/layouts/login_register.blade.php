@@ -1,4 +1,3 @@
-<!-- ログインと会員登録の共通レイアウト -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>

@@ -11,7 +11,6 @@ use App\Http\Requests\ProfileRequest;
 
 class ProfileController extends Controller
 {
-    /*プロフィール設定画面・確認用*/
 
 
     public function editprofile(){
