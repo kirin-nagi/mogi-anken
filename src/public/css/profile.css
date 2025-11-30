@@ -20,6 +20,12 @@
     color: black;
 }
 
+.profile-heading{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
 .profile__button{
     margin-right: 0;
 }

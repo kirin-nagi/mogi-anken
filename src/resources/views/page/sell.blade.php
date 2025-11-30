@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/index.css') }}">
+<link rel="stylesheet" href="{{ asset('css/profile.css') }}">
 @endsection
 
 @section('content')
@@ -16,7 +16,7 @@
                 <img src="/storage/{{ $address->image}}" width="125">
             @endif
             </div>
-            <h2>{{ $user->name }}</h2>
+            <h2 class="profile-name">{{ $user->name }}</h2>
             <form action="/mypage/profile" method="get">
                 <button class="profile__button-submit" type="submit">プロフィールを編集</button>
             </form>
