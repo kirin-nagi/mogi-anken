@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Sell;
+use App\Models\Address;
 
 
 class ItemController extends Controller
@@ -30,8 +31,10 @@ class ItemController extends Controller
 
     public function sell()
     {
+        $user = Auth::user();
         $products = Product::where('user_id', Auth::id())->get();
-        return view('page.sell', compact('products'));
+        $address = Address::where('user_id', $user->id)->first();
+        return view('page.sell', compact('user','products','address'));
     }
 
 }

@@ -7,6 +7,21 @@
 
 @section('content')
 <div class="category-content">
+    <div class="profile-heading">
+        <div class="icon">
+            <div class="circle__img">
+                @if($address->image == null)
+                <div style="width: 100px; height: 100px; background-color: #9e9d9dff; border-radius: 50%; margin: 20px auto;"></div>
+            @else
+                <img src="/storage/{{ $address->image}}" width="125">
+            @endif
+            </div>
+            <h2>{{ $user->name }}</h2>
+            <form action="/mypage/profile" method="get">
+                <button class="profile__button-submit" type="submit">プロフィールを編集</button>
+            </form>
+        </div>
+    </div>
     <div class="category-group__inner">
         <div class="category-group__row">
             <div class="category-group__header">

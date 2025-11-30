@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function (){
     Route::post('/profile/update',[ProfileController::class, 'updateprofile']);
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     Route::get('/sell',[ProductController::class, 'showsell']);
-    Route::get('/mypage',[ProductController::class, 'sell'])->name('mypage.sell');
+    Route::get('/mypage',[ItemController::class, 'sell'])->name('mypage.sell');
     Route::post('/mypage',[ProductController::class, 'create'])->name('mypage.create');
     Route::post('/item/{item_id}/comment',[LikeController::class, 'comment'])->name('comment');
     Route::post('/item/{item_id}/like',[LikeController::class, 'like'])->name('like');
